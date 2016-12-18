@@ -90,17 +90,11 @@
 -->
 
 <div class="main-wrapper">
-    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-    </fb:login-button>
+    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
 
     <div id="status"></div>
 
-    <div>
-        <label for="idInput">Enter FB event link</label>
-        <input id="idInput" type="text" value="https://www.facebook.com/events/181659822248251">
-        <button>Get data</button>
-        <div id="results">empty</div>
-    </div>
+    <div id="results"></div>
 </div>
 
 
@@ -108,20 +102,12 @@
 <script src="scripts/psy-mapp.js"></script>
 
 <script>
-    // Here we run a very simple test of the Graph API after login is
-    // successful.  See statusChangeCallback() for when this call is made.
+    // Here we run a Graph API after login is successful.
+    // See statusChangeCallback() for when this call is made.
     function psyMappAPI() {
-        console.log('Welcome!.... ');
-        /*FB.api(
-            '/me',
-            function (response) {
-                document.getElementById('status').innerHTML =
-                    'Thanks for logging in, ' + response.name + '!';
-            });*/
-
-        psyMapp.init();
-
+        //psyMapp.init();
     }
+    psyMapp.init();
 </script>
 </body>
 </html>
