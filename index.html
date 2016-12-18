@@ -2,9 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+    <title>psy-mapp</title>
 
+</head>
+<style>
+    input[type="text"] {
+        width: 320px;
+    }
+</style>
+<body>
+<div class="main-wrapper">
+    <label for="idInput">Enter FB event link</label>
+    <input id="idInput" type="text" value="https://www.facebook.com/events/181659822248251">
+    <button>Get data</button>
+    <div id="results"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="scripts/psy-mapp.js"></script>
+<script>
+    init.psyMapp();
+</script>
 </body>
 </html>
