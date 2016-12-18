@@ -11,43 +11,6 @@
     }
 </style>
 <body>
-<div id="fb-root"></div>
-<script>
-    /*window.fbAsyncInit = function () {
-     FB.init({
-     appId: '694984177343686',
-     xfbml: true,
-     version: 'v2.8'
-     });
-     FB.AppEvents.logPageView(
-
-     FB.api(
-     '/me',
-     'GET',
-     {},
-     function(response) {
-     // Insert your code here
-     console.log(response);
-     }
-     )
-
-     );
-     };
-
-     (function (d, s, id) {
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {
-     return;
-     }
-     js = d.createElement(s);
-     js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));*/
-
-
-
-</script>
 
 <div class="main-wrapper">
     <div>
@@ -59,40 +22,9 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-<!--
 <script src="scripts/psy-mapp.js"></script>
--->
 <script>
-    $.ajaxSetup({ cache: true });
-    $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
-        FB.init({
-            appId: '694984177343686',
-            version: 'v2.5'
-        });
-
-        FB.getLoginStatus(function(response) {
-            console.log("kuku");
-            if (response.status === 'connected') {
-                console.log('Logged in.');
-            }
-            else {
-                console.log("Logged out");
-                FB.login();
-            }
-        });
-
-        FB.api(
-            '/me',
-            'GET',
-            {},
-            function(response) {
-                // Insert your code here
-                console.log(response);
-            }
-        )
-    });
-
-    //init.psyMapp();
+    init.psyMapp();
 </script>
 </body>
 </html>
