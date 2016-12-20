@@ -127,28 +127,8 @@
         psyMapp.init();
     }
 
-    //psyMapp.init();
+    psyMapp.init();
 
-    //function initMap() {
-        /*var map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 52.519325, lng: 13.392709},
-            zoom: 5
-        });*/
-
-        //setMarkers(map);
-    //}
-
-    function setMarkers(map) {
-        console.log("set markers");
-        for (var i = 0; i < festivals.length; i++) {
-            var festival = festivals[i];
-            var marker = new google.maps.Marker({
-                position: {lat: festival[1], lng: festival[2]},
-                map: map,
-                title: festival[0]
-            });
-        }
-    }
 </script>
 
 
