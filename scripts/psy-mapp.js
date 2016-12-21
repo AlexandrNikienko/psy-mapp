@@ -29,7 +29,7 @@ var psyMapp = {
                 }
             )
         }
-        psyMapp.map.setCenter({lat: 52.519325, lng: 13.392709});
+        //psyMapp.map.setCenter({lat: 52.519325, lng: 13.392709});
     },
     setData: function (obj) {
         $("#results").append();
@@ -293,7 +293,7 @@ var psyMapp = {
         } else {
             console.log("!!! have no place! !!" + obj.name)
         }
-
+        psyMapp.map.setCenter({lat: 52.519325, lng: 13.392709});
     },
     isLocal: function() {
         var link = window.location.href;
