@@ -1,1 +1,31 @@
-[]
+[
+  {
+    "description": "MO:DEM FESTIVAL 6'th EDITION↵24.07.2017. - 30.07.2017.↵↵Time flies when you're having fun! And we are still trying to grasp the fact that it’s time for sixth edition of Mo:Dem Festival. We certainly didn’t come so far on our own, and first we want to bow and thank all those people who have helped us to achieve ate, check out global promotion parties around you...  and most of all save the date for the most Demented experience yet.",
+    "end_time": "2017-07-30T21:00:00+0200",
+    "id": "559379634259373",
+    "name": "MoDem Festival 2017 (Momento Demento)",
+    "place": {
+      "name": "Primislje, Croatia",
+      "id": "751858881548158"
+    },
+    "start_time": "2017-07-24T13:00:00+0200"
+  },
+  {
+    "description": "Tree of Life Festival - 5η έκδοση - Enter the Portal ↵23-27 Ιουνίου 2017 - Camping Ασπροβάλτας - Ελλάδα↵↵Είναι ώρα να Αφήσεις τα πάντα πίσω και να Μπεις στην Πύλη !↵✯✯✯✯ία.↵↵↵==========================================↵3 σκηνές - τέχνη - εργαστήρια - θεραπεία - οικογένεια↵πτομέρειες και Ευτυχία.... :-)↵✪✪✪✪✪✪✪✪✪✪↵↵↵N ҉ A ҉ M ҉ A ҉ S ҉ T ҉ E.•°↵Tree Of Life Festival",
+    "end_time": "2017-06-27T20:00:00+0300",
+    "id": "1724395051210095",
+    "name": "Tree of Life Festival - Enter the Portal - ૐ 5η Έκδοση",
+    "place": {
+      "id": "751858881548158",
+      "location": {
+        "city": "Asproválta",
+        "country": "Greece",
+        "latitude": 40.71845,
+        "longitude": 23.70593,
+        "zip": "57021"
+      },
+      "name": "Asprovalta - Ασπροβάλτα"
+    },
+    "start_time": "2017-06-23T17:00:00+0300"
+  }
+]
