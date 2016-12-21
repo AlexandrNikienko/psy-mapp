@@ -39,8 +39,10 @@ var psyMapp = {
         });
     },
     setMarker: function(map, obj) {
+        console.log("Marker for: ", obj);
         var lat = !obj.place.location ? 0 : obj.place.location.latitude,
-            lng = !obj.place.longitude ? 0 : obj.place.location.longitude;
+            lng = !obj.place.location ? 0 : obj.place.location.longitude;
+        console.log(lat,lng);
 
         var marker = new google.maps.Marker({
             position: {lat: lat, lng: lng},
