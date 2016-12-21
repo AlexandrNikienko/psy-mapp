@@ -29,13 +29,14 @@ var psyMapp = {
                 }
             )
         }
+        psyMapp.map.setCenter({lat: 52.519325, lng: 13.392709});
     },
     setData: function (obj) {
         $("#results").append();
     },
     initGoogleMap: function(arr) {
         psyMapp.map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 52.519325, lng: 13.392709},
+            //center: {lat: 52.519325, lng: 13.392709},
             zoom: 5
         });
         psyMapp.geocoder = new google.maps.Geocoder();
@@ -299,20 +300,6 @@ var psyMapp = {
         if (link.indexOf("localhost") !== -1 ) {
             return true
         }
-    },
-    getLatLngFromAddress: function(str) {
-        var address = str;
-        geocoder.geocode( { 'address': address}, function(results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                map.setCenter(results[0].geometry.location);
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: results[0].geometry.location
-                });
-            } else {
-                alert("Geocode was not successful for the following reason: " + status);
-            }
-        });
     },
     getIDs: function() {
         $.getJSON( "data/IDs.json", function( data ) {
