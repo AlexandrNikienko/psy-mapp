@@ -3,9 +3,11 @@ var psyMapp = {
     init: function () {
         console.log("Init Psy-Mapp");
         this.initGoogleMap();
-        this.getData();
-        //this.getLocalData();
-
+        if (this.isLocal()) {
+            this.getLocalData();
+        } else {
+            this.getData();
+        }
     },
     getLocalData: function() {
         $.getJSON( "data/data.json", function( data ) {
@@ -49,6 +51,12 @@ var psyMapp = {
             map: map,
             title: obj.name
         });
+    },
+    isLocal: function() {
+        var link = window.location.href;
+        if (link.indexOf("localhost") !== -1 ) {
+            return true
+        }
     }
 }
 
