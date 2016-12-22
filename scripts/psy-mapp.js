@@ -8,9 +8,9 @@ var psyMapp = {
             this.getIDs();
         }
     },
-    getLocalData: function() {
-        $.getJSON( "data/data.json", function( data ) {
-            $.each( data, function( key, val ) {
+    getLocalData: function () {
+        $.getJSON("data/data.json", function (data) {
+            $.each(data, function (key, val) {
                 psyMapp.setData(val);
                 psyMapp.setMarker(psyMapp.map, val);
             });
@@ -23,7 +23,7 @@ var psyMapp = {
                 '/' + IDs[i] + "?fields=name,place,start_time,end_time,id",
                 'GET',
                 {},
-                function(data) {
+                function (data) {
                     psyMapp.setMarker(psyMapp.map, data);
                     //psyMapp.setData(data);
                 }
@@ -33,7 +33,7 @@ var psyMapp = {
     setData: function (obj) {
         $("#results").append();
     },
-    initGoogleMap: function(arr) {
+    initGoogleMap: function (arr) {
         psyMapp.map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 30, lng: 13.392709},
             zoom: 3
@@ -258,22 +258,23 @@ var psyMapp = {
 
         psyMapp.map.setOptions({styles: styles});
     },
-    setMarker: function(map, obj) {
+    setMarker: function (map, obj) {
         console.log("*** Marker for: ", obj.name + " ***");
-        //console.log(lat,lng);
         if (obj.place) {
-            console.log("Place :" + JSON.stringify(obj.place));
+            //console.log("Place :" + JSON.stringify(obj.place));
             if (!obj.place.location) {
+                var markup = "<a target='_blank' href='http://www.facebook.com/events/" + obj.id + "'>" + obj.name + "</a>";
                 var address = obj.place.name;
                 console.log("Place name :" + address);
-                psyMapp.geocoder.geocode( { 'address': address}, function(results, status) {
+                psyMapp.geocoder.geocode({'address': address}, function (results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
                         //map.setCenter(results[0].geometry.location);
                         var marker = new google.maps.Marker({
                             map: map,
-                            position: results[0].geometry.location,
-                            title: obj.name
+                            position: results[0].geometry.location//,
+                            //title: obj.name
                         });
+                        psyMapp.setMarkerClick(markup, map, marker);
                     } else {
                         console.log(obj.name + " @ " + obj.place.name + ": Geocode was not successful: " + status);
                     }
@@ -282,33 +283,43 @@ var psyMapp = {
             else {
                 var lat = obj.place.location.latitude,
                     lng = obj.place.location.longitude;
+                var markup = "<a target='_blank' href='http://www.facebook.com/events/" + obj.id + "'>" + obj.name + "</a>";
                 console.log("LatLng " + lat + "/" + lng);
                 var marker = new google.maps.Marker({
                     position: {lat: lat, lng: lng},
-                    map: map,
-                    title: obj.name
+                    map: map//,
+                    //title: obj.name
                 });
+                psyMapp.setMarkerClick(markup, map, marker);
             }
         } else {
             console.log("!!! have no place! !!" + obj.name);
-
         }
     },
-    isLocal: function() {
+    setMarkerClick: function (content, map, marker) {
+        var infowindow = new google.maps.InfoWindow({
+            content: content
+        });
+
+        marker.addListener('click', function () {
+            infowindow.open(map, marker);
+        });
+    },
+    isLocal: function () {
         var link = window.location.href;
-        if (link.indexOf("localhost") !== -1 ) {
+        if (link.indexOf("localhost") !== -1) {
             return true
         }
     },
-    getIDs: function() {
-        $.getJSON( "data/IDs.json", function( data ) {
+    getIDs: function () {
+        $.getJSON("data/IDs.json", function (data) {
             var IDs = [];
-            $.each( data, function( key, val ) {
-                $.each( val, function( key, val ) {
+            $.each(data, function (key, val) {
+                $.each(val, function (key, val) {
                     var link = val;
                     var arr = link.split("/");
                     var length = arr.length;
-                    var id = arr[length-1];
+                    var id = arr[length - 1];
                     IDs.push(id);
                 });
 
