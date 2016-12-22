@@ -29,15 +29,14 @@ var psyMapp = {
                 }
             )
         }
-        //psyMapp.map.setCenter({lat: 52.519325, lng: 13.392709});
     },
     setData: function (obj) {
         $("#results").append();
     },
     initGoogleMap: function(arr) {
         psyMapp.map = new google.maps.Map(document.getElementById('map'), {
-            //center: {lat: 52.519325, lng: 13.392709},
-            zoom: 5
+            center: {lat: 30, lng: 13.392709},
+            zoom: 3
         });
         psyMapp.geocoder = new google.maps.Geocoder();
 
@@ -269,14 +268,14 @@ var psyMapp = {
                 console.log("Place name :" + address);
                 psyMapp.geocoder.geocode( { 'address': address}, function(results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
-                        map.setCenter(results[0].geometry.location);
+                        //map.setCenter(results[0].geometry.location);
                         var marker = new google.maps.Marker({
                             map: map,
                             position: results[0].geometry.location,
                             title: obj.name
                         });
                     } else {
-                        console.log(obj.name + " @ " + obj.place.name + ": Geocode was not successful for the following reason: " + status);
+                        console.log(obj.name + " @ " + obj.place.name + ": Geocode was not successful: " + status);
                     }
                 });
             }
@@ -291,9 +290,9 @@ var psyMapp = {
                 });
             }
         } else {
-            console.log("!!! have no place! !!" + obj.name)
+            console.log("!!! have no place! !!" + obj.name);
+
         }
-        psyMapp.map.setCenter({lat: 52.519325, lng: 13.392709});
     },
     isLocal: function() {
         var link = window.location.href;
