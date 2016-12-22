@@ -20,7 +20,7 @@ var psyMapp = {
         var IDs = IDs;
         for (var i = 0; i < IDs.length; i++) {
             FB.api(
-                '/' + IDs[i],
+                '/' + IDs[i] + "?fields=name,place,start_time,end_time,id",
                 'GET',
                 {},
                 function(data) {
