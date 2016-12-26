@@ -1,14 +1,20 @@
 [
   {
     "description": "MO:DEM FESTIVAL 6'th EDITION↵24.07.2017. - 30.07.2017.↵↵Time flies when you're having fun! And we are still trying to grasp the fact that it’s time for sixth edition of Mo:Dem Festival. We certainly didn’t come so far on our own, and first we want to bow and thank all those people who have helped us to achieve ate, check out global promotion parties around you...  and most of all save the date for the most Demented experience yet.",
-    "end_time": "2017-07-30T21:00:00+0200",
+    "end_time": "2016-07-30T21:00:00+0200",
     "id": "559379634259373",
     "name": "MoDem Festival 2017 (Momento Demento)",
     "place": {
       "name": "Primislje, Croatia",
       "id": "751858881548158"
     },
-    "start_time": "2017-07-24T13:00:00+0200"
+    "start_time": "2016-07-24T13:00:00+0200",
+    "cover": {
+      "offset_x": 7,
+      "offset_y": 0,
+      "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/15179083_1491449620868586_9092372187709664366_n.jpg?oh=befbb1cf8594e8bd34cf801904b38833&oe=58E4B821",
+      "id": "1491449620868586"
+    }
   },
   {
     "description": "Tree of Life Festival - 5η έκδοση - Enter the Portal ↵23-27 Ιουνίου 2017 - Camping Ασπροβάλτας - Ελλάδα↵↵Είναι ώρα να Αφήσεις τα πάντα πίσω και να Μπεις στην Πύλη !↵✯✯✯✯ία.↵↵↵==========================================↵3 σκηνές - τέχνη - εργαστήρια - θεραπεία - οικογένεια↵πτομέρειες και Ευτυχία.... :-)↵✪✪✪✪✪✪✪✪✪✪↵↵↵N ҉ A ҉ M ҉ A ҉ S ҉ T ҉ E.•°↵Tree Of Life Festival",
@@ -26,17 +32,29 @@
       },
       "name": "Asprovalta - Ασπροβάλτα"
     },
-    "start_time": "2017-06-23T17:00:00+0300"
+    "start_time": "2017-06-23T17:00:00+0300",
+    "cover": {
+      "offset_x": 7,
+      "offset_y": 0,
+      "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/15179083_1491449620868586_9092372187709664366_n.jpg?oh=befbb1cf8594e8bd34cf801904b38833&oe=58E4B821",
+      "id": "1491449620868586"
+    }
   },
   {
     "description": "C’est avec immense plaisir et enthousiasme que toute l’équipe d’Harmonic festival - troisième édition ! - vous invite à venir partager de nouvelles aventures festives, initiatrices et informatives au sein de son fameux village éphémère et enchanté tant apprécié par tous ! Terre d’accueil et de rencontres, de partage autour de la musique, du bien-être, de la pleine conscience, et de la créativité de chacun.",
     "end_time": "2017-07-23T11:00:00+0200",
     "name": "Festival Harmonic 2017",
     "place": {
-      "name": "Trigance"
+      "name": "Tba"
     },
     "start_time": "2017-07-20T09:00:00+0200",
-    "id": "214103575665356"
+    "id": "214103575665356",
+    "cover": {
+      "offset_x": 7,
+      "offset_y": 0,
+      "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/15179083_1491449620868586_9092372187709664366_n.jpg?oh=befbb1cf8594e8bd34cf801904b38833&oe=58E4B821",
+      "id": "1491449620868586"
+    }
   },
   {
     "description": "Sveiki, nibiriečiai!",
@@ -46,14 +64,26 @@
       "name": "Lithuania"
     },
     "start_time": "2017-07-21T11:00:00-0700",
-    "id": "687978394683816"
+    "id": "687978394683816",
+    "cover": {
+      "offset_x": 7,
+      "offset_y": 0,
+      "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/15179083_1491449620868586_9092372187709664366_n.jpg?oh=befbb1cf8594e8bd34cf801904b38833&oe=58E4B821",
+      "id": "1491449620868586"
+    }
   },
   {
     "description": "Segue o baile! LOADING...",
     "end_time": "2017-06-19T15:00:00-0300",
     "name": "Pulsar Festival - Encontro de Arte, Cultura e Sustentabilidade",
     "start_time": "2017-06-14T08:00:00-0300",
-    "id": "147733978974404"
+    "id": "147733978974404",
+    "cover": {
+      "offset_x": 7,
+      "offset_y": 0,
+      "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/15179083_1491449620868586_9092372187709664366_n.jpg?oh=befbb1cf8594e8bd34cf801904b38833&oe=58E4B821",
+      "id": "1491449620868586"
+    }
   },
   {
     "description": "Phat Productions Presents ",
@@ -63,6 +93,12 @@
       "name": "The Farm,  Waimatenui East Road, Donnellys Crossing, Northland"
     },
     "start_time": "2017-02-03T12:00:00+1300",
-    "id": "988205204628267"
+    "id": "988205204628267",
+    "cover": {
+      "offset_x": 7,
+      "offset_y": 0,
+      "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/15179083_1491449620868586_9092372187709664366_n.jpg?oh=befbb1cf8594e8bd34cf801904b38833&oe=58E4B821",
+      "id": "1491449620868586"
+    }
   }
 ]

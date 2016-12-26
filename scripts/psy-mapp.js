@@ -20,7 +20,7 @@ var psyMapp = {
         var IDs = IDs;
         for (var i = 0; i < IDs.length; i++) {
             FB.api(
-                '/' + IDs[i] + "?fields=name,place,start_time,end_time,id",
+                '/' + IDs[i] + "?fields=name,place,start_time,end_time,id,cover",
                 'GET',
                 {},
                 function (data) {
@@ -39,6 +39,11 @@ var psyMapp = {
             zoom: 3
         });
         psyMapp.geocoder = new google.maps.Geocoder();
+
+        psyMapp.infowindow = new google.maps.InfoWindow({
+            content: '',
+            maxWidth: 250
+        });
 
         var styles = [
             {
@@ -259,36 +264,53 @@ var psyMapp = {
         psyMapp.map.setOptions({styles: styles});
     },
     setMarker: function (map, obj) {
-        console.log("*** Marker for: ", obj.name + " ***");
+        //console.log("*** Marker for: ", obj.name + " ***");
+        var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        var startDate = new Date(obj.start_time);
+        var endDate = new Date(obj.end_time);
+        var datesStr = startDate.getDate() + ' ' + monthNames[startDate.getMonth()] + ' ' +  startDate.getFullYear() +
+            " - " + endDate.getDate() + ' ' + monthNames[endDate.getMonth()] + ' ' +  endDate.getFullYear();
+        var src = obj.cover ? obj.cover.source : "";
+        var markup = "<img src='" + src + "'>" +
+            "<a target='_blank' href='http://www.facebook.com/events/" + obj.id + "'>" + obj.name + "</a>" + datesStr;
+
+        var today = new Date();
+        if (endDate < today ) {
+            console.log("Enent "+ obj.name + " finished");
+            return;
+        }
+
         if (obj.place) {
             //console.log("Place :" + JSON.stringify(obj.place));
+
+            if (obj.place.name.toLowerCase()=="tba") {
+                console.log("Place TBA for  "+ obj.name + "  can not be shown");
+                return;
+            }
+
             if (!obj.place.location) {
-                var markup = "<a target='_blank' href='http://www.facebook.com/events/" + obj.id + "'>" + obj.name + "</a>";
+
                 var address = obj.place.name;
-                console.log("Place name :" + address);
+                //console.log("Place name :" + address);
                 psyMapp.geocoder.geocode({'address': address}, function (results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
-                        //map.setCenter(results[0].geometry.location);
                         var marker = new google.maps.Marker({
                             map: map,
-                            position: results[0].geometry.location//,
-                            //title: obj.name
+                            position: results[0].geometry.location
                         });
                         psyMapp.setMarkerClick(markup, map, marker);
                     } else {
-                        console.log(obj.name + " @ " + obj.place.name + ": Geocode was not successful: " + status);
+                        //console.log(obj.name + " @ " + obj.place.name + ": Geocode was not successful: " + status);
                     }
                 });
             }
             else {
                 var lat = obj.place.location.latitude,
                     lng = obj.place.location.longitude;
-                var markup = "<a target='_blank' href='http://www.facebook.com/events/" + obj.id + "'>" + obj.name + "</a>";
-                console.log("LatLng " + lat + "/" + lng);
+                //console.log("LatLng " + lat + "/" + lng);
                 var marker = new google.maps.Marker({
                     position: {lat: lat, lng: lng},
-                    map: map//,
-                    //title: obj.name
+                    map: map
                 });
                 psyMapp.setMarkerClick(markup, map, marker);
             }
@@ -297,12 +319,10 @@ var psyMapp = {
         }
     },
     setMarkerClick: function (content, map, marker) {
-        var infowindow = new google.maps.InfoWindow({
-            content: content
-        });
-
         marker.addListener('click', function () {
-            infowindow.open(map, marker);
+            if (psyMapp.infoWindow) psyMapp.infoWindow.close();
+            psyMapp.infowindow.setContent(content);
+            psyMapp.infowindow.open(map, marker);
         });
     },
     isLocal: function () {

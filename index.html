@@ -4,6 +4,7 @@
     <title>Psy-Mapp</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <style type="text/css">
     html, body {
@@ -11,20 +12,69 @@
         margin: 0;
         padding: 0;
     }
+
     #map {
         height: 100%;
-        width:100%;
+        width: 100%;
+        position: absolute;
+        top:0;
+        left: 0;
     }
-    input[type="text"] {
-        width: 320px;
-    }
+
     .main-wrapper {
         position: absolute;
-        top: 3rem;
-        left: 2rem;
-        background-color: #111;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
         color: white;
         padding: 1rem;
+        height: 100%;
+
+        box-sizing: border-box;
+    }
+
+    .login {
+        position: absolute;
+        top: 3rem;
+    }
+
+    .fb-page {
+        position: absolute !important;
+        right: 1rem;
+        top: 1rem;
+    }
+
+    .date-range {
+        position: absolute;
+        top: 10px;
+        left: 125px;
+        color: black;
+        background-color: rgba(255,255,255,0.5);
+        padding: 4px;
+        box-shadow: 1px 1px 10px grey;
+    }
+
+    .fb-page {
+        width: 200px;
+    }
+
+    .gm-style-iw {
+        color: black;
+    }
+    .gm-style-iw a {
+        color: black;
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+        line-height: 1.3em;
+        font-size: 1rem;
+        text-transform: uppercase;
+    }
+    .gm-style-iw img {
+        width: 250px;
+        display: block;
+        margin-bottom: 5px;
     }
 </style>
 <body>
@@ -42,6 +92,7 @@
             // Here we run a Graph API after login is successful.
             // See statusChangeCallback() for when this call is made.
             psyMappAPI();
+            $(".fb-page").show();
 
         } else if (response.status === 'not_authorized') {
             // The person is logged into Facebook, but not your app.
@@ -103,21 +154,49 @@
 
 </script>
 
-<!--
+
+
+<div class="main-wrapper">
+    <div id="map"></div>
+
+    <!--
   Below we include the Login Button social plugin. This button uses
   the JavaScript SDK to present a graphical Login button that triggers
   the FB.login() function when clicked.
 -->
-<div id="map"></div>
-<div class="main-wrapper">
-    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
-    <div id="status"></div>
-    <div id="results"></div>
+    <div class="login">
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+        <div id="status"></div>
+        <div id="results"></div>
+    </div>
+
+    <div class="fb-page"
+         data-href="https://www.facebook.com/psymaptest/"
+         data-tabs="messages"
+         data-height="480"
+         data-small-header="false"
+         data-adapt-container-width="true"
+         data-hide-cover="false"
+         data-show-facepile="true">
+        <blockquote cite="https://www.facebook.com/psymaptest/" class="fb-xfbml-parse-ignore">
+            <a href="https://www.facebook.com/psymaptest/">PsyMap</a>
+        </blockquote>
+    </div>
+
+    <div class="date-range">
+        <label for="from">From</label>
+        <input type="text" id="from" name="from">
+        <label for="to">To</label>
+        <input type="text" id="to" name="to">
+    </div>
 </div>
 
 
-
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script
+        src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuDBQMQJlNaUl_ZThZZe9V99nsCnJRQTc&callback=initMap"></script>
 <script src="scripts/psy-mapp.js"></script>
 
@@ -128,8 +207,37 @@
 
     if (psyMapp.isLocal()) psyMapp.init();
 
-</script>
+    $(function () {
+        var dateFormat = "mm/dd/yy",
+            from = $("#from")
+                .datepicker({
+                    defaultDate: "+1w",
+                    changeMonth: true,
+                    numberOfMonths: 1
+                })
+                .on("change", function () {
+                    to.datepicker("option", "minDate", getDate(this));
+                }),
+            to = $("#to").datepicker({
+                defaultDate: "+1w",
+                changeMonth: true,
+                numberOfMonths: 1
+            })
+                .on("change", function () {
+                    from.datepicker("option", "maxDate", getDate(this));
+                });
 
+        function getDate(element) {
+            var date;
+            try {
+                date = $.datepicker.parseDate(dateFormat, element.value);
+            } catch (error) {
+                date = null;
+            }
+            return date;
+        }
+    });
+</script>
 
 
 </body>
