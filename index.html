@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Psy-Mapp</title>
+    <title>Psy-Map Application</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="images/favicon.png">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <style type="text/css">
@@ -41,8 +42,9 @@
 
     .fb-page {
         position: absolute !important;
-        right: 1rem;
-        top: 1rem;
+        right: 10px;
+        top: 10px;
+        width: 222px;
     }
 
     .date-range {
@@ -53,10 +55,6 @@
         background-color: rgba(255,255,255,0.5);
         padding: 4px;
         box-shadow: 1px 1px 10px grey;
-    }
-
-    .fb-page {
-        width: 200px;
     }
 
     .gm-style-iw {
@@ -76,6 +74,15 @@
         display: block;
         margin-bottom: 5px;
     }
+    .hide {
+        display: none;
+    }
+
+    @media (max-width: 640px) {
+        .fb-page {
+            display: none !important;
+        }
+    }
 </style>
 <body>
 <script>
@@ -93,6 +100,7 @@
             // See statusChangeCallback() for when this call is made.
             psyMappAPI();
             $(".fb-page").show();
+            $(".login").addClass("hide");
 
         } else if (response.status === 'not_authorized') {
             // The person is logged into Facebook, but not your app.
@@ -173,7 +181,7 @@
     <div class="fb-page"
          data-href="https://www.facebook.com/psymaptest/"
          data-tabs="messages"
-         data-height="480"
+         data-height="400"
          data-small-header="false"
          data-adapt-container-width="true"
          data-hide-cover="false"
