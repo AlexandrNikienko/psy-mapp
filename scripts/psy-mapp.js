@@ -296,7 +296,8 @@ var psyMapp = {
                     if (status == google.maps.GeocoderStatus.OK) {
                         var marker = new google.maps.Marker({
                             map: map,
-                            position: results[0].geometry.location
+                            position: results[0].geometry.location,
+                            icon: 'http://www.moonkoradji.com/psy-mapp/images/marker.png'
                         });
                         psyMapp.setMarkerClick(markup, map, marker);
                     } else {
@@ -310,7 +311,8 @@ var psyMapp = {
                 //console.log("LatLng " + lat + "/" + lng);
                 var marker = new google.maps.Marker({
                     position: {lat: lat, lng: lng},
-                    map: map
+                    map: map,
+                    icon: 'http://www.moonkoradji.com/psy-mapp/images/marker.png'
                 });
                 psyMapp.setMarkerClick(markup, map, marker);
             }
