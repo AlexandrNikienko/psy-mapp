@@ -31,8 +31,21 @@ var psyMapp = {
             )
         }
     },
+    getUser: function (id) {
+        FB.api(
+            '/' + id + '?fields=id,name,picture',
+            'GET',
+            {},
+            function (data) {
+                console.log("USER :", data);
+                var html = '<div class="user-wrapper"><div class="user-name">Hello, <br>' + data.name + '</div>' +
+                    '<div class="user-pic"><img src="' + data.picture.data.url + '" alt=""/></div></div>';
+                $('.welcome').append(html);
+            }
+        )
+    },
     setData: function (obj) {
-        $("#results").append();
+        //$("#results").append(obj);
     },
     initGoogleMap: function (arr) {
         psyMapp.map = new google.maps.Map(document.getElementById('map'), {
@@ -337,8 +350,8 @@ var psyMapp = {
                 var iwBackground = iwOuter.prev().addClass('iwBackground');
 
                 /*iwOuter.attr('style', function (i, s) {
-                    return s + 'top: 18px !important; left: 24px !important'
-                });*/
+                 return s + 'top: 18px !important; left: 24px !important'
+                 });*/
 
                 iwOuter.children().addClass('iwInner');
 
@@ -364,10 +377,10 @@ var psyMapp = {
                 //iwBackground.children(':nth-child(3)').addClass('iwCh3').attr('style', function(i,s){ return s + 'left: 76px !important;'});
 
                 // Changes the desired tail shadow color.
-                iwBackground.children(':nth-child(3)').find('div').children().addClass('isShadow').css({
-                    'box-shadow': 'rgba(72, 181, 233, 0.6) 0px 1px 6px',
-                    'z-index': '1'
-                });
+                /*iwBackground.children(':nth-child(3)').find('div').children().addClass('isShadow').css({
+                 'box-shadow': 'rgba(72, 181, 233, 0.6) 0px 1px 6px',
+                 'z-index': '1'
+                 });*/
 
                 // Reference to the div that groups the close button elements.
                 var iwCloseBtn = iwOuter.next().addClass('iwCloseBtn');

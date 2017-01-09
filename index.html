@@ -88,9 +88,6 @@
         box-shadow: 1px 1px 10px grey;
     }
 
-    .gm-style .gm-style-iw {
-        font-weight: normal;
-    }
     .iwLink {
         font-weight: bold;
         margin-bottom: 5px;
@@ -117,27 +114,53 @@
     .iwLink,
     .iwDate {
         padding: 0 10px;
-        color: #a2d400;
+        color: #e74c3c;
     }
     .iwCloseBtn {
-        /*border: 5px solid white;
-        border-radius: 100%;*/
-        /*top: -5px !important;
-        right: 5px !important;*/
     }
     .iwBackColor {
-        opacity: 0.75;
+        opacity: 0.25;
+        background-color: #e74c3c;
     }
     .iwBackArrow {
-        opacity: 0.75;
+        opacity: 0.25;
     }
     .hide {
         display: none;
+    }
+    .welcome {
+        display: none;
+    }
+    .user-wrapper {
+        display: table;
+        position: absolute;
+        color: black;
+        top: 10px;
+        right: 242px;
+        padding: 5px;
+    }
+    .user-name {
+        display: table-cell;
+        ertical-align: middle;
+        text-align: right;
+    }
+    .user-pic {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .user-pic img {
+        margin-left: 5px;
+        width: 35px;
+        height: 35px;
+        display: block;
     }
 
     @media (max-width: 640px) {
         .fb-page {
             display: none !important;
+        }
+        .user-wrapper {
+            right: 10px;
         }
     }
 </style>
@@ -155,9 +178,11 @@
             // Logged into your app and Facebook.
             // Here we run a Graph API after login is successful.
             // See statusChangeCallback() for when this call is made.
-            psyMappAPI();
+            var uid = response.authResponse.userID;
+            psyMappAPI(uid);
             $(".fb-page").show();
             $(".login").addClass("hide");
+            $(".welcome").show();
 
         } else if (response.status === 'not_authorized') {
             // The person is logged into Facebook, but not your app.
@@ -239,6 +264,10 @@
         <div id="results"></div>
     </div>
 
+    <div class="welcome">
+
+    </div>
+
     <div class="fb-page"
          data-href="https://www.facebook.com/psymaptest/"
          data-tabs="messages"
@@ -270,8 +299,9 @@
 <script src="scripts/psy-mapp.js"></script>
 
 <script type="text/javascript">
-    function psyMappAPI() {
+    function psyMappAPI(UID) {
         psyMapp.init();
+        psyMapp.getUser(UID);
     }
 
     if (psyMapp.isLocal()) psyMapp.init();
