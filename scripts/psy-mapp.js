@@ -3,6 +3,7 @@ var psyMapp = {
         console.log("Init Psy-Mapp");
         this.initGoogleMap();
         if (this.isLocal()) {
+            $(".login").hide();
             this.getLocalData();
         } else {
             this.getIDs();
@@ -268,23 +269,24 @@ var psyMapp = {
         var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         var startDate = new Date(obj.start_time);
         var endDate = new Date(obj.end_time);
-        var datesStr = startDate.getDate() + ' ' + monthNames[startDate.getMonth()] + ' ' +  startDate.getFullYear() +
-            " - " + endDate.getDate() + ' ' + monthNames[endDate.getMonth()] + ' ' +  endDate.getFullYear();
+        var datesStr = startDate.getDate() + ' ' + monthNames[startDate.getMonth()] + ' ' + startDate.getFullYear() +
+            " - " + endDate.getDate() + ' ' + monthNames[endDate.getMonth()] + ' ' + endDate.getFullYear();
         var src = obj.cover ? obj.cover.source : "";
-        var markup = "<img src='" + src + "'>" +
-            "<a target='_blank' href='http://www.facebook.com/events/" + obj.id + "'>" + obj.name + "</a>" + datesStr;
+        var markup = "<img class='iwImage' src='" + src + "'>" +
+            "<a class='iwLink' target='_blank' href='http://www.facebook.com/events/" + obj.id + "'>" + obj.name + "</a>" +
+            "<span class='iwDate'>" + datesStr + "</span>";
 
         var today = new Date();
-        if (endDate < today ) {
-            console.log("Enent "+ obj.name + " finished");
+        if (endDate < today) {
+            console.log("Enent " + obj.name + " finished");
             return;
         }
 
         if (obj.place) {
             //console.log("Place :" + JSON.stringify(obj.place));
 
-            if (obj.place.name.toLowerCase()=="tba") {
-                console.log("Place TBA for  "+ obj.name + "  can not be shown");
+            if (obj.place.name.toLowerCase() == "tba") {
+                console.log("Place TBA for  " + obj.name + "  can not be shown");
                 return;
             }
 
@@ -297,7 +299,7 @@ var psyMapp = {
                         var marker = new google.maps.Marker({
                             map: map,
                             position: results[0].geometry.location,
-                            icon: 'http://www.moonkoradji.com/psy-mapp/images/marker.png'
+                            icon: 'http://www.moonkoradji.com/psymap/images/map-marker-3.png'
                         });
                         psyMapp.setMarkerClick(markup, map, marker);
                     } else {
@@ -312,7 +314,7 @@ var psyMapp = {
                 var marker = new google.maps.Marker({
                     position: {lat: lat, lng: lng},
                     map: map,
-                    icon: 'http://www.moonkoradji.com/psy-mapp/images/marker.png'
+                    icon: 'http://www.moonkoradji.com/psymap/images/map-marker-3.png'
                 });
                 psyMapp.setMarkerClick(markup, map, marker);
             }
@@ -325,6 +327,57 @@ var psyMapp = {
             if (psyMapp.infoWindow) psyMapp.infoWindow.close();
             psyMapp.infowindow.setContent(content);
             psyMapp.infowindow.open(map, marker);
+
+            google.maps.event.addListener(psyMapp.infowindow, 'domready', function () {
+
+                var iwOuter = $('.gm-style-iw');
+
+                var iwWrapper = iwOuter.parent().addClass('iwWrapper');
+
+                var iwBackground = iwOuter.prev().addClass('iwBackground');
+
+                /*iwOuter.attr('style', function (i, s) {
+                    return s + 'top: 18px !important; left: 24px !important'
+                });*/
+
+                iwOuter.children().addClass('iwInner');
+
+                iwBackground.children(':nth-child(1)').addClass('iwBackArrowShadow').end()
+                    .children(':nth-child(2)').addClass('iwBackShadow').end()
+                    .children(':nth-child(3)').addClass('iwBackArrow').end()
+                    .children(':nth-child(4)').addClass('iwBackColor').end()
+
+
+                // Removes background shadow DIV
+                //iwBackground.children(':nth-child(2)').addClass('iwCh2').css({'display': 'none'});
+
+                // Removes white background DIV
+                //iwBackground.children(':nth-child(4)').addClass('iwCh4').css({'display': 'none'});
+
+                // Moves the infowindow 115px to the right.
+                //iwOuter.parent().parent().addClass('iwOuter').css({left: '115px'});
+
+                // Moves the shadow of the arrow 76px to the left margin.
+                //iwBackground.children(':nth-child(1)').addClass('iwCh1').attr('style', function(i,s){ return s + 'left: 76px !important;'});
+
+                // Moves the arrow 76px to the left margin.
+                //iwBackground.children(':nth-child(3)').addClass('iwCh3').attr('style', function(i,s){ return s + 'left: 76px !important;'});
+
+                // Changes the desired tail shadow color.
+                iwBackground.children(':nth-child(3)').find('div').children().addClass('isShadow').css({
+                    'box-shadow': 'rgba(72, 181, 233, 0.6) 0px 1px 6px',
+                    'z-index': '1'
+                });
+
+                // Reference to the div that groups the close button elements.
+                var iwCloseBtn = iwOuter.next().addClass('iwCloseBtn');
+
+                // The API automatically applies 0.7 opacity to the button after the mouseout event. This function reverses this event to the desired value.
+                iwCloseBtn.mouseout(function () {
+                    //$(this).css({opacity: '1'});
+                });
+            });
+
         });
     },
     isLocal: function () {

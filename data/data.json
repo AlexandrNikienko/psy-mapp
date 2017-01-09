@@ -1,23 +1,20 @@
 [
   {
-    "description": "MO:DEM FESTIVAL 6'th EDITION↵24.07.2017. - 30.07.2017.↵↵Time flies when you're having fun! And we are still trying to grasp the fact that it’s time for sixth edition of Mo:Dem Festival. We certainly didn’t come so far on our own, and first we want to bow and thank all those people who have helped us to achieve ate, check out global promotion parties around you...  and most of all save the date for the most Demented experience yet.",
-    "end_time": "2016-07-30T21:00:00+0200",
     "id": "559379634259373",
     "name": "MoDem Festival 2017 (Momento Demento)",
     "place": {
       "name": "Primislje, Croatia",
       "id": "751858881548158"
     },
-    "start_time": "2016-07-24T13:00:00+0200",
+    "start_time": "2017-07-24T13:00:00+0200",
     "cover": {
       "offset_x": 7,
       "offset_y": 0,
-      "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/15179083_1491449620868586_9092372187709664366_n.jpg?oh=befbb1cf8594e8bd34cf801904b38833&oe=58E4B821",
+      "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/14063916_1817178008500709_8211898352385358812_n.jpg?oh=8261b82f5a1b4032aa8db671ddac0ae0&oe=591F7D4E",
       "id": "1491449620868586"
     }
   },
   {
-    "description": "Tree of Life Festival - 5η έκδοση - Enter the Portal ↵23-27 Ιουνίου 2017 - Camping Ασπροβάλτας - Ελλάδα↵↵Είναι ώρα να Αφήσεις τα πάντα πίσω και να Μπεις στην Πύλη !↵✯✯✯✯ία.↵↵↵==========================================↵3 σκηνές - τέχνη - εργαστήρια - θεραπεία - οικογένεια↵πτομέρειες και Ευτυχία.... :-)↵✪✪✪✪✪✪✪✪✪✪↵↵↵N ҉ A ҉ M ҉ A ҉ S ҉ T ҉ E.•°↵Tree Of Life Festival",
     "end_time": "2017-06-27T20:00:00+0300",
     "id": "1724395051210095",
     "name": "Tree of Life Festival - Enter the Portal - ૐ 5η Έκδοση",
@@ -41,11 +38,10 @@
     }
   },
   {
-    "description": "C’est avec immense plaisir et enthousiasme que toute l’équipe d’Harmonic festival - troisième édition ! - vous invite à venir partager de nouvelles aventures festives, initiatrices et informatives au sein de son fameux village éphémère et enchanté tant apprécié par tous ! Terre d’accueil et de rencontres, de partage autour de la musique, du bien-être, de la pleine conscience, et de la créativité de chacun.",
     "end_time": "2017-07-23T11:00:00+0200",
     "name": "Festival Harmonic 2017",
     "place": {
-      "name": "Tba"
+      "name": "London"
     },
     "start_time": "2017-07-20T09:00:00+0200",
     "id": "214103575665356",
