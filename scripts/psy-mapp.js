@@ -12,24 +12,40 @@ var psyMapp = {
     getLocalData: function () {
         $.getJSON("data/data.json", function (data) {
             $.each(data, function (key, val) {
-                psyMapp.setData(val);
                 psyMapp.setMarker(psyMapp.map, val);
             });
         });
     },
     getData: function (IDs) {
+        psyMapp.allData = [];
+        psyMapp.allDataStr = '';
         var IDs = IDs;
         for (var i = 0; i < IDs.length; i++) {
+            var a = i;
             FB.api(
                 '/' + IDs[i] + "?fields=name,place,start_time,end_time,id,cover",
                 'GET',
                 {},
                 function (data) {
+                    psyMapp.allData.push(JSON.stringify(data));
+                    psyMapp.allDataStr += JSON.stringify(data) + ",";
+                    //console.log(a);
+                    //if (a == (IDs.length - 1)) $("#status").text("psyMapp.allDataStr: " + psyMapp.allDataStr);
                     psyMapp.setMarker(psyMapp.map, data);
-                    //psyMapp.setData(data);
                 }
             )
         }
+        console.log("psyMapp.allData: ", psyMapp.allData);
+        //$("#status").text(psyMapp.allData);
+
+        /*console.log("psyMapp.allData.length: ", psyMapp.allData.length);
+        for (var i = 0; i < psyMapp.allData.length; i++) {
+            console.log("psyMapp.allData[i]: ", psyMapp.allData[i]);
+            psyMapp.allDataStr += psyMapp.allData[i] + ","
+        }*/
+
+        //console.log("psyMapp.allDataStr: ", psyMapp.allDataStr);
+        //$("#status").text(psyMapp.allDataStr);
     },
     getUser: function (id) {
         FB.api(
@@ -43,9 +59,6 @@ var psyMapp = {
                 $('.welcome').append(html);
             }
         )
-    },
-    setData: function (obj) {
-        //$("#results").append(obj);
     },
     initGoogleMap: function (arr) {
         psyMapp.map = new google.maps.Map(document.getElementById('map'), {
@@ -275,7 +288,7 @@ var psyMapp = {
             }
         ];
 
-        psyMapp.map.setOptions({styles: styles});
+        //psyMapp.map.setOptions({styles: styles});
     },
     setMarker: function (map, obj) {
         //console.log("*** Marker for: ", obj.name + " ***");

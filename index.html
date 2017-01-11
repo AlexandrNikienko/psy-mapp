@@ -43,13 +43,13 @@
             $(".welcome").show();
         } else if (response.status === 'not_authorized') {
             // The person is logged into Facebook, but not your app.
-            document.getElementById('status').innerHTML = 'Please log ' +
-                'into this app.';
+
+            //document.getElementById('status').innerHTML = 'Please log into this app.';
         } else {
             // The person is not logged into Facebook, so we're not sure if
             // they are logged into this app or not.
-            document.getElementById('status').innerHTML = 'Please log ' +
-                'into Facebook.';
+
+            //document.getElementById('status').innerHTML = 'Please log into Facebook.';
         }
     }
     // This function is called when someone finishes with the Login
@@ -99,7 +99,7 @@
 
 
 
-<div class="main-wrapper">
+<main class="main-wrapper">
     <div id="map"></div>
 
     <!--Below we include the Login Button social plugin. This button uses
@@ -137,7 +137,11 @@
         <label for="to">To</label>
         <input type="text" id="to" name="to">
     </div>-->
-</div>
+
+    <footer class="footer">
+        &copy; PsyMap Application 2017
+    </footer>
+</main>
 
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>

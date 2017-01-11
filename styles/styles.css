@@ -5,11 +5,18 @@ html, body {
 }
 
 #map {
-    height: 100%;
+    /*height: 100%;
     width: 100%;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 0;*/
+    position: absolute;
+    top: 45px;
+    left: 10px;
+    right: 242px;
+    bottom: 40px;
+    border-radius: 1px;
+
 }
 
 .main-wrapper {
@@ -19,9 +26,10 @@ html, body {
     left: 0;
     bottom: 0;
     color: white;
-    padding: 1rem;
     height: 100%;
     box-sizing: border-box;
+    background: black;
+    background: url(http://moonkoradji.com/images/bg-min.jpg);
 }
 
 .login {
@@ -64,7 +72,7 @@ html, body {
 .fb-page {
     position: absolute !important;
     right: 10px;
-    top: 55px;
+    top: 45px;
     width: 222px;
 }
 
@@ -134,15 +142,15 @@ html, body {
 .user-wrapper {
     display: table;
     position: absolute;
-    top: 10px;
+    top: 0;
     right: 10px;
     padding: 5px;
     width: 222px;
     box-sizing: border-box;
-    background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 100%);
-    background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(0,0,0,0.75) 100%);
-    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0.75) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#bf000000',GradientType=0 );
+    /*background: -moz-linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.75) 100%);
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.75) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.75) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#bf000000', GradientType=0);*/
 }
 
 .user-name {
@@ -172,18 +180,34 @@ html, body {
     display: block;
 }
 
+.footer {
+    position: absolute;
+    height: 40px;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: white;
+    line-height: 40px;
+}
+
 @media (max-width: 640px) {
     .fb-page {
         display: none !important;
     }
+
     .user-wrapper {
         width: 188px;
         border-radius: 2px;
         background: white;
         border: 1px solid #E9EBEE;
     }
+
     .user-name {
         color: #111;
         max-width: 135px;
+    }
+    #map {
+        top: 10px;
+        right: 10px;
     }
 }
