@@ -1,0 +1,155 @@
+html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #map {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top:0;
+        left: 0;
+    }
+
+    .main-wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        color: white;
+        padding: 1rem;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    .login {
+        position: absolute;
+        width:200px;
+        text-align: center;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+    }
+
+    .logo {
+        background: url(images/psy-map-logo.png) no-repeat center top / 200px;
+        width: 200px;
+        height: 200px;
+        margin-bottom: 8px;
+    }
+
+    .title-main {
+        text-transform: uppercase;
+        color: #4F4F6D;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 47px;
+    }
+
+    .title-second {
+        color: #4F4F6D;
+        margin-bottom: 15px;
+        margin-right: 5px;
+        font-size: 21px;
+        text-align: justify;
+        display: inline;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+
+    .fb-page {
+        position: absolute !important;
+        right: 10px;
+        top: 10px;
+        width: 222px;
+    }
+
+    .date-range {
+        position: absolute;
+        top: 10px;
+        left: 125px;
+        color: black;
+        background-color: rgba(255,255,255,0.5);
+        padding: 4px;
+        box-shadow: 1px 1px 10px grey;
+    }
+
+    .iwLink {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+        line-height: 1.3em;
+        font-size: 1rem;
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+    .gm-style .iwImage {
+        max-width: 250px;
+        display: block;
+        margin-bottom: 10px;
+    }
+    .iwInner {
+        background-color: rgba(0,0,0,0.9);
+        border-radius: 5px;
+        padding: 0 0 10px;
+    }
+    .gm-style .iwDate {
+        font-weight: normal;
+        font-size: 14px;
+    }
+    .iwLink,
+    .iwDate {
+        padding: 0 10px;
+        color: #e74c3c;
+    }
+    .iwCloseBtn {
+    }
+    .iwBackColor {
+        opacity: 0.25;
+        background-color: #e74c3c;
+    }
+    .iwBackArrow {
+        opacity: 0.25;
+    }
+    .hide {
+        display: none;
+    }
+    .welcome {
+        display: none;
+    }
+    .user-wrapper {
+        display: table;
+        position: absolute;
+        color: black;
+        top: 10px;
+        right: 242px;
+        padding: 5px;
+    }
+    .user-name {
+        display: table-cell;
+        ertical-align: middle;
+        text-align: right;
+    }
+    .user-pic {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .user-pic img {
+        margin-left: 5px;
+        width: 35px;
+        height: 35px;
+        display: block;
+    }
+
+    @media (max-width: 640px) {
+        .fb-page {
+            display: none !important;
+        }
+        .user-wrapper {
+            right: 10px;
+        }
+    }
