@@ -5,18 +5,12 @@ html, body {
 }
 
 #map {
-    /*height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;*/
     position: absolute;
     top: 45px;
     left: 10px;
-    right: 242px;
+    right: 10px;
     bottom: 40px;
-    border-radius: 1px;
-
+    border-radius: 50%;
 }
 
 .main-wrapper {
@@ -29,7 +23,17 @@ html, body {
     height: 100%;
     box-sizing: border-box;
     background: black;
-    background: url(http://moonkoradji.com/images/bg-min.jpg);
+    background: url(http://moonkoradji.com/psymap/images/space.jpg);
+}
+
+.sheep-1 {
+    background: url(http://moonkoradji.com/psymap/images/sheep-1.png) no-repeat center/contain;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    bottom: 50px;
+    left: 10px;
+    z-index: 90;
 }
 
 .login {
@@ -41,6 +45,7 @@ html, body {
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    z-index: 100;
 }
 
 .logo {
@@ -196,18 +201,28 @@ html, body {
     }
 
     .user-wrapper {
-        width: 188px;
+        width: 166px;
         border-radius: 2px;
         background: white;
-        border: 1px solid #E9EBEE;
+        /*border: 1px solid #E9EBEE;*/
+        top: 10px;
     }
 
     .user-name {
         color: #111;
-        max-width: 135px;
+        max-width: 113px;
     }
+
     #map {
         top: 10px;
         right: 10px;
+        border-radius: 1px;
+        border: none;
+    }
+
+    .sheep-1 {
+        width: 100px;
+        height: 80px;
+        bottom: 60px;
     }
 }

@@ -73,7 +73,7 @@ var psyMapp = {
         });
 
         var styles = [
-            {
+            /*{
                 "elementType": "geometry",
                 "stylers": [
                     {
@@ -267,13 +267,14 @@ var psyMapp = {
                         "color": "#dfd2ae"
                     }
                 ]
-            },
+            },*/
             {
                 "featureType": "water",
                 "elementType": "geometry.fill",
                 "stylers": [
                     {
-                        "color": "#b9d3c2"
+                        //"color": "#b9d3c2",
+                        "color": "#313131",
                     }
                 ]
             },
@@ -285,10 +286,17 @@ var psyMapp = {
                         "color": "#92998d"
                     }
                 ]
+            },
+            {
+                featureType: "water",
+                elementType: "labels",
+                stylers: [
+                    { visibility: "off" }
+                ]
             }
         ];
 
-        //psyMapp.map.setOptions({styles: styles});
+        psyMapp.map.setOptions({styles: styles});
     },
     setMarker: function (map, obj) {
         //console.log("*** Marker for: ", obj.name + " ***");
