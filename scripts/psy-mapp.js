@@ -41,10 +41,10 @@ var psyMapp = {
         //$("#status").text(psyMapp.allData);
 
         /*console.log("psyMapp.allData.length: ", psyMapp.allData.length);
-        for (var i = 0; i < psyMapp.allData.length; i++) {
-            console.log("psyMapp.allData[i]: ", psyMapp.allData[i]);
-            psyMapp.allDataStr += psyMapp.allData[i] + ","
-        }*/
+         for (var i = 0; i < psyMapp.allData.length; i++) {
+         console.log("psyMapp.allData[i]: ", psyMapp.allData[i]);
+         psyMapp.allDataStr += psyMapp.allData[i] + ","
+         }*/
 
         //console.log("psyMapp.allDataStr: ", psyMapp.allDataStr);
         //$("#status").text(psyMapp.allDataStr);
@@ -76,200 +76,200 @@ var psyMapp = {
 
         var styles = [
             /*{
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#ebe3cd"
-                    }
-                ]
-            },
-            {
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#523735"
-                    }
-                ]
-            },
-            {
-                "elementType": "labels.text.stroke",
-                "stylers": [
-                    {
-                        "color": "#f5f1e6"
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                    {
-                        "color": "#c9b2a6"
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative.land_parcel",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                    {
-                        "color": "#dcd2be"
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative.land_parcel",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#ae9e90"
-                    }
-                ]
-            },
-            {
-                "featureType": "landscape.natural",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#dfd2ae"
-                    }
-                ]
-            },
-            {
-                "featureType": "poi",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#dfd2ae"
-                    }
-                ]
-            },
-            {
-                "featureType": "poi",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#93817c"
-                    }
-                ]
-            },
-            {
-                "featureType": "poi.park",
-                "elementType": "geometry.fill",
-                "stylers": [
-                    {
-                        "color": "#a5b076"
-                    }
-                ]
-            },
-            {
-                "featureType": "poi.park",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#447530"
-                    }
-                ]
-            },
-            {
-                "featureType": "road",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#f5f1e6"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.arterial",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#fdfcf8"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.highway",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#f8c967"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.highway",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                    {
-                        "color": "#e9bc62"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.highway.controlled_access",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#e98d58"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.highway.controlled_access",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                    {
-                        "color": "#db8555"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.local",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#806b63"
-                    }
-                ]
-            },
-            {
-                "featureType": "transit.line",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#dfd2ae"
-                    }
-                ]
-            },
-            {
-                "featureType": "transit.line",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#8f7d77"
-                    }
-                ]
-            },
-            {
-                "featureType": "transit.line",
-                "elementType": "labels.text.stroke",
-                "stylers": [
-                    {
-                        "color": "#ebe3cd"
-                    }
-                ]
-            },
-            {
-                "featureType": "transit.station",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#dfd2ae"
-                    }
-                ]
-            },*/
+             "elementType": "geometry",
+             "stylers": [
+             {
+             "color": "#ebe3cd"
+             }
+             ]
+             },
+             {
+             "elementType": "labels.text.fill",
+             "stylers": [
+             {
+             "color": "#523735"
+             }
+             ]
+             },
+             {
+             "elementType": "labels.text.stroke",
+             "stylers": [
+             {
+             "color": "#f5f1e6"
+             }
+             ]
+             },
+             {
+             "featureType": "administrative",
+             "elementType": "geometry.stroke",
+             "stylers": [
+             {
+             "color": "#c9b2a6"
+             }
+             ]
+             },
+             {
+             "featureType": "administrative.land_parcel",
+             "elementType": "geometry.stroke",
+             "stylers": [
+             {
+             "color": "#dcd2be"
+             }
+             ]
+             },
+             {
+             "featureType": "administrative.land_parcel",
+             "elementType": "labels.text.fill",
+             "stylers": [
+             {
+             "color": "#ae9e90"
+             }
+             ]
+             },
+             {
+             "featureType": "landscape.natural",
+             "elementType": "geometry",
+             "stylers": [
+             {
+             "color": "#dfd2ae"
+             }
+             ]
+             },
+             {
+             "featureType": "poi",
+             "elementType": "geometry",
+             "stylers": [
+             {
+             "color": "#dfd2ae"
+             }
+             ]
+             },
+             {
+             "featureType": "poi",
+             "elementType": "labels.text.fill",
+             "stylers": [
+             {
+             "color": "#93817c"
+             }
+             ]
+             },
+             {
+             "featureType": "poi.park",
+             "elementType": "geometry.fill",
+             "stylers": [
+             {
+             "color": "#a5b076"
+             }
+             ]
+             },
+             {
+             "featureType": "poi.park",
+             "elementType": "labels.text.fill",
+             "stylers": [
+             {
+             "color": "#447530"
+             }
+             ]
+             },
+             {
+             "featureType": "road",
+             "elementType": "geometry",
+             "stylers": [
+             {
+             "color": "#f5f1e6"
+             }
+             ]
+             },
+             {
+             "featureType": "road.arterial",
+             "elementType": "geometry",
+             "stylers": [
+             {
+             "color": "#fdfcf8"
+             }
+             ]
+             },
+             {
+             "featureType": "road.highway",
+             "elementType": "geometry",
+             "stylers": [
+             {
+             "color": "#f8c967"
+             }
+             ]
+             },
+             {
+             "featureType": "road.highway",
+             "elementType": "geometry.stroke",
+             "stylers": [
+             {
+             "color": "#e9bc62"
+             }
+             ]
+             },
+             {
+             "featureType": "road.highway.controlled_access",
+             "elementType": "geometry",
+             "stylers": [
+             {
+             "color": "#e98d58"
+             }
+             ]
+             },
+             {
+             "featureType": "road.highway.controlled_access",
+             "elementType": "geometry.stroke",
+             "stylers": [
+             {
+             "color": "#db8555"
+             }
+             ]
+             },
+             {
+             "featureType": "road.local",
+             "elementType": "labels.text.fill",
+             "stylers": [
+             {
+             "color": "#806b63"
+             }
+             ]
+             },
+             {
+             "featureType": "transit.line",
+             "elementType": "geometry",
+             "stylers": [
+             {
+             "color": "#dfd2ae"
+             }
+             ]
+             },
+             {
+             "featureType": "transit.line",
+             "elementType": "labels.text.fill",
+             "stylers": [
+             {
+             "color": "#8f7d77"
+             }
+             ]
+             },
+             {
+             "featureType": "transit.line",
+             "elementType": "labels.text.stroke",
+             "stylers": [
+             {
+             "color": "#ebe3cd"
+             }
+             ]
+             },
+             {
+             "featureType": "transit.station",
+             "elementType": "geometry",
+             "stylers": [
+             {
+             "color": "#dfd2ae"
+             }
+             ]
+             },*/
             {
                 "featureType": "water",
                 "elementType": "geometry.fill",
@@ -293,7 +293,7 @@ var psyMapp = {
                 featureType: "water",
                 elementType: "labels",
                 stylers: [
-                    { visibility: "off" }
+                    {visibility: "off"}
                 ]
             }
         ];
@@ -302,17 +302,42 @@ var psyMapp = {
     },
     setMarker: function (map, obj) {
         //console.log("*** Marker for: ", obj.name + " ***");
-        var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-        var startDate = new Date(obj.start_time);
-        var endDate = new Date(obj.end_time);
-        var datesStr = startDate.getDate() + ' ' + monthNames[startDate.getMonth()] + ' ' + startDate.getFullYear() +
-            " - " + endDate.getDate() + ' ' + monthNames[endDate.getMonth()] + ' ' + endDate.getFullYear();
-        var src = obj.cover ? obj.cover.source : "";
-        var markup = "<img class='iwImage' src='" + src + "'>" +
-            "<a class='iwLink' target='_blank' href='http://www.facebook.com/events/" + obj.id + "'>" + obj.name + "</a>" +
-            "<span class='iwDate'>" + datesStr + "</span>";
 
-        var today = new Date();
+        var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+
+            startDatestring = "" + obj.start_time + "",
+            endDatestring = "" + obj.end_time + "",
+
+            startDate = new Date(obj.start_time),
+
+            endDate = new Date(obj.end_time),
+
+             /*datesStr = startDate.getDate() + ' ' +
+                        monthNames[startDate.getMonth()] + ' ' +
+                        startDate.getFullYear() + " - " +
+                        endDate.getDate() + ' ' +
+                        monthNames[endDate.getMonth()] + ' ' +
+                        endDate.getFullYear(),*/
+
+            datesStr = startDatestring.substr(8, 2) + ' ' +
+                monthNames[startDatestring.substr(5, 2) - 1] + ' ' +
+                startDatestring.substr(0, 4) + " - " +
+                endDatestring.substr(8, 2) + ' ' +
+                monthNames[endDatestring.substr(5, 2) - 1] + ' ' +
+                endDatestring.substr(0, 4),
+
+            imgSrc = obj.cover ? obj.cover.source : "",
+
+            markup = "<img class='iwImage' src='" + imgSrc + "'>" +
+                "<a class='iwLink' target='_blank' href='http://www.facebook.com/events/" + obj.id + "'>" + obj.name + "</a>" +
+                "<span class='iwDate'>" + datesStr + "</span>",
+
+            today = new Date();
+
+        /*console.log("start date ", startDatestring.substr(8, 2));
+        console.log("month ", monthNames[startDatestring.substr(5, 2) - 1]);
+        console.log("year ", startDatestring.substr(0, 4));*/
+
         if (endDate < today) {
             console.log("Enent " + obj.name + " finished");
             return;
