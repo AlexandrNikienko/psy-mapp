@@ -1,3 +1,5 @@
+/* created by Alexandr Nikienko */
+
 var psyMapp = {
     init: function () {
         console.log("Init Psy-Mapp");
