@@ -16,7 +16,7 @@
       "url" : "http://www.moonkoradji.com/psymap",
       "sameAs" : [ "https://www.facebook.com/psymaptest/"],
       "logo": "http://moonkoradji.com/psymap/images/psy-map-logo.png",
-      "image": "http://moonkoradji.com/psymap/images/psymap-bg.png",
+      "image": "http://moonkoradji.com/psymap/images/psymap-bg.jpg",
       "description": "World map of psytrance festivals"
       }
     </script>
@@ -43,12 +43,12 @@
             $(".welcome").show();
         } else if (response.status === 'not_authorized') {
             // The person is logged into Facebook, but not your app.
-
+            console.log("The person is logged into Facebook, but not your app.");
             //document.getElementById('status').innerHTML = 'Please log into this app.';
         } else {
             // The person is not logged into Facebook, so we're not sure if
             // they are logged into this app or not.
-
+            console.log("The person is not logged into Facebook.");
             //document.getElementById('status').innerHTML = 'Please log into Facebook.';
         }
     }
