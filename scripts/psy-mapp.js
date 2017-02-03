@@ -397,10 +397,6 @@ var psyMapp = {
 
                 var iwBackground = iwOuter.prev().addClass('iwBackground');
 
-                /*iwOuter.attr('style', function (i, s) {
-                 return s + 'top: 18px !important; left: 24px !important'
-                 });*/
-
                 iwOuter.children().addClass('iwInner');
 
                 iwBackground.children(':nth-child(1)').addClass('iwBackArrowShadow').end()
@@ -408,35 +404,9 @@ var psyMapp = {
                     .children(':nth-child(3)').addClass('iwBackArrow').end()
                     .children(':nth-child(4)').addClass('iwBackColor').end()
 
-
-                // Removes background shadow DIV
-                //iwBackground.children(':nth-child(2)').addClass('iwCh2').css({'display': 'none'});
-
-                // Removes white background DIV
-                //iwBackground.children(':nth-child(4)').addClass('iwCh4').css({'display': 'none'});
-
-                // Moves the infowindow 115px to the right.
-                //iwOuter.parent().parent().addClass('iwOuter').css({left: '115px'});
-
-                // Moves the shadow of the arrow 76px to the left margin.
-                //iwBackground.children(':nth-child(1)').addClass('iwCh1').attr('style', function(i,s){ return s + 'left: 76px !important;'});
-
-                // Moves the arrow 76px to the left margin.
-                //iwBackground.children(':nth-child(3)').addClass('iwCh3').attr('style', function(i,s){ return s + 'left: 76px !important;'});
-
-                // Changes the desired tail shadow color.
-                /*iwBackground.children(':nth-child(3)').find('div').children().addClass('isShadow').css({
-                 'box-shadow': 'rgba(72, 181, 233, 0.6) 0px 1px 6px',
-                 'z-index': '1'
-                 });*/
-
                 // Reference to the div that groups the close button elements.
                 var iwCloseBtn = iwOuter.next().addClass('iwCloseBtn');
 
-                // The API automatically applies 0.7 opacity to the button after the mouseout event. This function reverses this event to the desired value.
-                iwCloseBtn.mouseout(function () {
-                    //$(this).css({opacity: '1'});
-                });
             });
 
         });

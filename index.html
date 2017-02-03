@@ -142,12 +142,12 @@
         </blockquote>
     </div>
 
-    <!--<div class="date-range">
+    <div class="date-range">
         <label for="from">From</label>
         <input type="text" id="from" name="from">
         <label for="to">To</label>
         <input type="text" id="to" name="to">
-    </div>-->
+    </div>
 
     <div class="sheep-1"></div>
 
@@ -173,8 +173,10 @@
 
     if (psyMapp.isLocal()) psyMapp.init();
 
+
+    /* filters */
     $(function () {
-        /*var dateFormat = "mm/dd/yy",
+        var dateFormat = "mm/dd/yy",
             from = $("#from")
                 .datepicker({
                     defaultDate: "+1w",
@@ -201,7 +203,7 @@
                 date = null;
             }
             return date;
-        }*/
+        }
     });
 </script>
 
