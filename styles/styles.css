@@ -84,11 +84,12 @@ html, body {
 .date-range {
     position: absolute;
     top: 10px;
-    left: 125px;
+    left: 10px;
     color: white;
     background-color: rgba(255, 255, 255, 0.5);
     padding: 4px;
     box-shadow: 1px 1px 10px grey;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 .iwLink {
@@ -224,5 +225,9 @@ html, body {
         width: 100px;
         height: 80px;
         bottom: 60px;
+    }
+
+    .date-range {
+        display: none;
     }
 }
