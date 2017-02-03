@@ -185,6 +185,16 @@
                 })
                 .on("change", function () {
                     to.datepicker("option", "minDate", getDate(this));
+                    console.log("reinit markers from ", getDate(this));
+                    psyMapp.filterDateFrom = new Date(getDate(this));
+
+                    psyMapp.initGoogleMap();
+                    if (psyMapp.isLocal()) {
+                        $(".login").hide();
+                        psyMapp.getLocalData();
+                    } else {
+                        psyMapp.getIDs();
+                    }
                 }),
             to = $("#to").datepicker({
                 defaultDate: "+1w",
@@ -193,6 +203,16 @@
             })
                 .on("change", function () {
                     from.datepicker("option", "maxDate", getDate(this));
+                    console.log("reinit markers to ", getDate(this));
+                    psyMapp.filterDateTo = new Date(getDate(this));
+
+                    psyMapp.initGoogleMap();
+                    if (psyMapp.isLocal()) {
+                        $(".login").hide();
+                        psyMapp.getLocalData();
+                    } else {
+                        psyMapp.getIDs();
+                    }
                 });
 
         function getDate(element) {

@@ -10,6 +10,9 @@ var psyMapp = {
         } else {
             this.getIDs();
         }
+
+        this.filterDateFrom = new Date('2017-01-01');
+        this.filterDateTo = new Date('2017-12-31');
     },
     getLocalData: function () {
         $.getJSON("data/data.json", function (data) {
@@ -62,7 +65,7 @@ var psyMapp = {
             }
         )
     },
-    initGoogleMap: function (arr) {
+    initGoogleMap: function () {
         psyMapp.map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 30, lng: 13.392709},
             zoom: 3
@@ -340,6 +343,16 @@ var psyMapp = {
 
         if (endDate < today) {
             console.log("Enent " + obj.name + " finished");
+            return;
+        }
+
+        if (+startDate > +psyMapp.filterDateTo ) {
+            console.log("Enent " + obj.name + " after TO date");
+            return;
+        }
+
+        if (+startDate <= +psyMapp.filterDateFrom ) {
+            console.log("Enent " + obj.name + " after TO date");
             return;
         }
 
