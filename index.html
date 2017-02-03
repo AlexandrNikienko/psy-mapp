@@ -49,9 +49,8 @@
             // See statusChangeCallback() for when this call is made.
             var uid = response.authResponse.userID;
             psyMappAPI(uid);
-            $(".fb-page").show();
+            $(".fb-page, .welcome, .date-range").show();
             $(".login").addClass("hide");
-            $(".welcome").show();
         } else if (response.status === 'not_authorized') {
             // The person is logged into Facebook, but not your app.
             console.log("The person is logged into Facebook, but not your app.");
