@@ -4,15 +4,21 @@ var psyMapp = {
     init: function () {
         console.log("Init Psy-Mapp");
         this.initGoogleMap();
+        this.showMarkers();
+
+        var date = new Date(),
+            year = date.getFullYear();
+
+        this.filterDateFrom = new Date('' + year + '-01-01');
+        this.filterDateTo = new Date('' + year + '-12-31');
+    },
+    showMarkers: function () {
         if (this.isLocal()) {
             $(".login").hide();
             this.getLocalData();
         } else {
             this.getIDs();
         }
-
-        this.filterDateFrom = new Date('2017-01-01');
-        this.filterDateTo = new Date('2017-12-31');
     },
     getLocalData: function () {
         $.getJSON("data/data.json", function (data) {
@@ -52,6 +58,23 @@ var psyMapp = {
         //console.log("psyMapp.allDataStr: ", psyMapp.allDataStr);
         //$("#status").text(psyMapp.allDataStr);
     },
+    getIDs: function () {
+        $.getJSON("data/IDs.json", function (data) {
+            var IDs = [];
+            $.each(data, function (key, val) {
+                $.each(val, function (key, val) {
+                    var link = val;
+                    var arr = link.split("/");
+                    var length = arr.length;
+                    var id = arr[length - 1];
+                    IDs.push(id);
+                });
+
+            });
+            console.log(IDs.length + " IDs :", IDs);
+            psyMapp.getData(IDs);
+        });
+    },
     getUser: function (id) {
         FB.api(
             '/' + id + '?fields=id,name,picture',
@@ -68,7 +91,8 @@ var psyMapp = {
     initGoogleMap: function () {
         psyMapp.map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 30, lng: 13.392709},
-            zoom: 3
+            zoom: 3,
+            minZoom: 2
         });
         psyMapp.geocoder = new google.maps.Geocoder();
 
@@ -315,12 +339,12 @@ var psyMapp = {
 
             endDate = new Date(obj.end_time),
 
-             /*datesStr = startDate.getDate() + ' ' +
-                        monthNames[startDate.getMonth()] + ' ' +
-                        startDate.getFullYear() + " - " +
-                        endDate.getDate() + ' ' +
-                        monthNames[endDate.getMonth()] + ' ' +
-                        endDate.getFullYear(),*/
+            /*datesStr = startDate.getDate() + ' ' +
+             monthNames[startDate.getMonth()] + ' ' +
+             startDate.getFullYear() + " - " +
+             endDate.getDate() + ' ' +
+             monthNames[endDate.getMonth()] + ' ' +
+             endDate.getFullYear(),*/
 
             datesStr = startDatestring.substr(8, 2) + ' ' +
                 monthNames[startDatestring.substr(5, 2) - 1] + ' ' +
@@ -337,22 +361,26 @@ var psyMapp = {
 
             today = new Date();
 
-        /*console.log("start date ", startDatestring.substr(8, 2));
-        console.log("month ", monthNames[startDatestring.substr(5, 2) - 1]);
-        console.log("year ", startDatestring.substr(0, 4));*/
+        /*creating dates correct for mac*/
 
-        if (endDate < today) {
+        var startDateParse = '' + startDatestring.substr(0, 4) + '-' + startDatestring.substr(5, 2) + '-' + startDatestring.substr(8, 2) + '';
+        startDate = new Date(startDateParse);
+
+        var endDateParse = '' + endDatestring.substr(0, 4) + '-' + endDatestring.substr(5, 2) + '-' + endDatestring.substr(8, 2) + '';
+        endDate = new Date(endDateParse);
+
+        if (+endDate.getTime() < +today.getTime()) {
             console.log("Enent " + obj.name + " finished");
             return;
         }
 
-        if (+startDate > +psyMapp.filterDateTo ) {
+        if (+startDate.getTime() > +psyMapp.filterDateTo.getTime()) {
             console.log("Enent " + obj.name + " after TO date");
             return;
         }
 
-        if (+startDate <= +psyMapp.filterDateFrom ) {
-            console.log("Enent " + obj.name + " after TO date");
+        if (+startDate.getTime() < +psyMapp.filterDateFrom.getTime()) {
+            console.log("Enent " + obj.name + " before From date");
             return;
         }
 
@@ -429,23 +457,6 @@ var psyMapp = {
         if (link.indexOf("localhost") !== -1) {
             return true
         }
-    },
-    getIDs: function () {
-        $.getJSON("data/IDs.json", function (data) {
-            var IDs = [];
-            $.each(data, function (key, val) {
-                $.each(val, function (key, val) {
-                    var link = val;
-                    var arr = link.split("/");
-                    var length = arr.length;
-                    var id = arr[length - 1];
-                    IDs.push(id);
-                });
-
-            });
-            console.log(IDs.length + " IDs :", IDs);
-            psyMapp.getData(IDs);
-        });
     }
 }
 

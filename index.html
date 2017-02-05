@@ -170,7 +170,10 @@
         psyMapp.getUser(UID);
     }
 
-    if (psyMapp.isLocal()) psyMapp.init();
+    if (psyMapp.isLocal()) {
+        psyMapp.init();
+        $(".date-range").show();
+    }
 
 
     /* filters */
@@ -184,16 +187,10 @@
                 })
                 .on("change", function () {
                     to.datepicker("option", "minDate", getDate(this));
-                    console.log("reinit markers from ", getDate(this));
+                    console.info("reset markers from ", getDate(this));
                     psyMapp.filterDateFrom = new Date(getDate(this));
-
                     psyMapp.initGoogleMap();
-                    if (psyMapp.isLocal()) {
-                        $(".login").hide();
-                        psyMapp.getLocalData();
-                    } else {
-                        psyMapp.getIDs();
-                    }
+                    psyMapp.showMarkers();
                 }),
             to = $("#to").datepicker({
                 defaultDate: "+1w",
@@ -202,16 +199,10 @@
             })
                 .on("change", function () {
                     from.datepicker("option", "maxDate", getDate(this));
-                    console.log("reinit markers to ", getDate(this));
+                    console.info("reset markers to ", getDate(this));
                     psyMapp.filterDateTo = new Date(getDate(this));
-
                     psyMapp.initGoogleMap();
-                    if (psyMapp.isLocal()) {
-                        $(".login").hide();
-                        psyMapp.getLocalData();
-                    } else {
-                        psyMapp.getIDs();
-                    }
+                    psyMapp.showMarkers();
                 });
 
         function getDate(element) {
