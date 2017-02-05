@@ -370,17 +370,17 @@ var psyMapp = {
         endDate = new Date(endDateParse);
 
         if (+endDate.getTime() < +today.getTime()) {
-            console.log("Enent " + obj.name + " finished");
+            console.log("Event " + obj.name + " finished");
             return;
         }
 
         if (+startDate.getTime() > +psyMapp.filterDateTo.getTime()) {
-            console.log("Enent " + obj.name + " after TO date");
+            console.log("Event " + obj.name + " after TO date");
             return;
         }
 
         if (+startDate.getTime() < +psyMapp.filterDateFrom.getTime()) {
-            console.log("Enent " + obj.name + " before From date");
+            console.log("Event " + obj.name + " before From date");
             return;
         }
 
