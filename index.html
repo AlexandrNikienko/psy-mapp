@@ -161,7 +161,7 @@
         src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
         integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
         crossorigin="anonymous"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuDBQMQJlNaUl_ZThZZe9V99nsCnJRQTc&callback=initMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuDBQMQJlNaUl_ZThZZe9V99nsCnJRQTc&language=en&callback=initMap"></script>
 <script src="scripts/psy-mapp.js"></script>
 
 <script type="text/javascript">
@@ -183,7 +183,8 @@
                 .datepicker({
                     defaultDate: "+1w",
                     changeMonth: true,
-                    numberOfMonths: 1
+                    numberOfMonths: 1,
+                    minDate: new Date()
                 })
                 .on("change", function () {
                     to.datepicker("option", "minDate", getDate(this));
@@ -195,7 +196,8 @@
             to = $("#to").datepicker({
                 defaultDate: "+1w",
                 changeMonth: true,
-                numberOfMonths: 1
+                numberOfMonths: 1,
+                minDate: new Date()
             })
                 .on("change", function () {
                     from.datepicker("option", "maxDate", getDate(this));
