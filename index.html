@@ -142,10 +142,11 @@
     </div>
 
     <div class="date-range">
-        <label for="from">Date from</label>
+        <label for="from">date from</label>
         <input type="text" id="from" name="from">
-        <label for="to">Date to</label>
+        <label for="to">date to</label>
         <input type="text" id="to" name="to">
+        <span class="reset-btn js-reset-filter">reset</span>
     </div>
 
     <div class="sheep-1"></div>
@@ -216,6 +217,22 @@
             }
             return date;
         }
+
+        $('.js-reset-filter').on('click', function(){
+            var date = new Date(),
+                year = date.getFullYear();
+
+            psyMapp.filterDateFrom = new Date('' + year + '-01-01');
+            psyMapp.filterDateTo = new Date('' + year + '-12-31');
+
+            psyMapp.initGoogleMap();
+            psyMapp.showMarkers();
+
+            $("#from, #to").datepicker( "option" , {
+                minDate: null,
+                maxDate: null,
+                minDate: new Date()} ).datepicker('setDate', null);
+        });
     });
 </script>
 

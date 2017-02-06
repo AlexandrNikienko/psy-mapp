@@ -213,6 +213,10 @@ html, body {
     background-color: rgba(0, 0, 0, 0.9)
 }
 
+.reset-btn {
+    cursor: pointer;
+}
+
 @media (max-width: 640px) {
     .fb-page {
         display: none !important;
