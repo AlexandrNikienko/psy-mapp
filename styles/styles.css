@@ -10,7 +10,6 @@ html, body {
     left: 10px;
     right: 10px;
     bottom: 40px;
-    /*border-radius: 50%;*/
 }
 
 .main-wrapper {
@@ -22,8 +21,8 @@ html, body {
     color: white;
     height: 100%;
     box-sizing: border-box;
-    background: black;
-    background: url(http://moonkoradji.com/psymap/images/space.jpg);
+    background: url(http://moonkoradji.com/psymap/images/space.jpg) black;
+    overflow: hidden;
 }
 
 .sheep-1 {
@@ -79,6 +78,7 @@ html, body {
     right: 10px;
     top: 45px;
     width: 222px;
+    transition: 0.3s;
 }
 
 .date-range {
@@ -92,6 +92,7 @@ html, body {
     box-shadow: 1px 1px 10px grey;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 14px;
+    transition: .3s;
 }
 
 .date-input {
@@ -211,7 +212,7 @@ html, body {
 
 }
 
-.fb_iframe_widget {
+.footer .fb_iframe_widget {
     display: flex !important;
     margin-right: 10px;
 }
@@ -233,10 +234,32 @@ html, body {
     background-color: rgba(0, 0, 0, 0.9)
 }
 
+.controls {
+    position: absolute;
+    flex-direction: column;
+    top: 55px;
+    right: 10px;
+    background: white;
+    display: none;
+}
+
+.controls-btn {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.controls-btn img {
+    width: 100%;
+}
+
 
 @media (max-width: 640px) {
     .fb-page {
-        display: none !important;
+        /*transform: translateX(105%);*/
+        right: -232px;
+        top: 100px;
     }
 
     .user-wrapper {
@@ -266,6 +289,19 @@ html, body {
     }
 
     .date-range {
-        display: none !important;
+        background-color: white;
+        color: black;
+        display: flex !important;
+        flex-direction: column;
+        right: -232px;
+        top: 145px;
+        left: auto;
+        width: 222px;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+
+    .controls {
+        /*display: flex;*/
     }
 }
