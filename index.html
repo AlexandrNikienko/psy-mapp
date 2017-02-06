@@ -143,23 +143,29 @@
 
     <div class="date-range">
         <label for="from">date from</label>
-        <input type="text" id="from" name="from">
+        <input class="date-input" type="text" id="from" name="from">
         <label for="to">date to</label>
-        <input type="text" id="to" name="to">
+        <input class="date-input" type="text" id="to" name="to">
         <span class="reset-btn js-reset-filter">reset</span>
     </div>
 
     <div class="sheep-1"></div>
 
     <footer class="footer">
-        &copy; PsyMap Application 2017
+        <div class="fb-like"
+             data-href="http://moonkoradji.com/psymap/"
+             data-layout="button_count"
+             data-action="like"
+             data-show-faces="false",
+            data-share="true">
+        </div>
+        <div class="copyrights">&copy; PsyMap Application 2017</div>
     </footer>
 </main>
 
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-<script
-        src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
         integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
         crossorigin="anonymous"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuDBQMQJlNaUl_ZThZZe9V99nsCnJRQTc&language=en&callback=initMap"></script>

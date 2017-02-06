@@ -94,6 +94,14 @@ html, body {
     font-size: 14px;
 }
 
+.date-input {
+    width: 106px;
+}
+
+.reset-btn {
+    cursor: pointer;
+}
+
 .iwLink {
     font-weight: bold;
     margin-bottom: 5px;
@@ -194,6 +202,18 @@ html, body {
     line-height: 40px;
     font-size: 14px;
     font-family: Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copyrights {
+
+}
+
+.fb_iframe_widget {
+    display: flex !important;
+    margin-right: 10px;
 }
 
 .ui-widget-header {
@@ -213,9 +233,6 @@ html, body {
     background-color: rgba(0, 0, 0, 0.9)
 }
 
-.reset-btn {
-    cursor: pointer;
-}
 
 @media (max-width: 640px) {
     .fb-page {
@@ -249,6 +266,6 @@ html, body {
     }
 
     .date-range {
-        display: none;
+        display: none !important;
     }
 }
