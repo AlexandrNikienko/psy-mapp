@@ -79,6 +79,7 @@ html, body {
     top: 45px;
     width: 222px;
     transition: 0.3s;
+    z-index: 200;
 }
 
 .date-range {
@@ -93,6 +94,7 @@ html, body {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 14px;
     transition: .3s;
+    z-index: 100;
 }
 
 .date-input {
@@ -101,6 +103,10 @@ html, body {
 
 .reset-btn {
     cursor: pointer;
+    background-color: #e74c3c;
+    padding: 3px 15px;
+    border-radius: 2px;
+    color: white;
 }
 
 .iwLink {
@@ -248,12 +254,20 @@ html, body {
     height: 35px;
     cursor: pointer;
     padding: 5px;
+    position: relative;
 }
 
 .controls-btn img {
     width: 100%;
 }
 
+.controls-btn .icon-close {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: calc(100% - 10px);
+    display: none;
+}
 
 @media (max-width: 640px) {
     .fb-page {
@@ -301,7 +315,21 @@ html, body {
         box-sizing: border-box;
     }
 
-    .controls {
-        /*display: flex;*/
+    .date-input {
+        width: 212px;
+        box-sizing: border-box;
+        padding: 5px;
+        margin: 5px 0;
+        border-radius: 2px;
+        border: 1px solid #dddfe2;
+    }
+
+    .reset-btn {
+        color: white;
+        padding: 10px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 3px;
     }
 }
