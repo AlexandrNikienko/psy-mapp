@@ -74,6 +74,7 @@ html, body {
 }
 
 .fb-page {
+    display: none;
     position: absolute !important;
     right: 10px;
     top: 45px;
@@ -273,6 +274,10 @@ html, body {
 }
 
 @media (max-width: 767px) {
+    .controls {
+        display: flex;
+    }
+
     .fb-page {
         /*transform: translateX(105%);*/
         right: -232px;
