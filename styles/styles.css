@@ -122,6 +122,7 @@ html, body {
 }
 
 .gm-style .iwImage {
+    width: 100%;
     max-width: 250px;
     display: block;
     margin-bottom: 10px;
