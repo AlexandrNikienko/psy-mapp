@@ -3,14 +3,22 @@
 var psyMapp = {
     init: function () {
         console.log("Init Psy-Mapp");
-        this.initGoogleMap();
-        this.showMarkers();
+
+        this.markerPath = 'http://www.moonkoradji.com/psymap/images/placeholder.png';
+
+        this.is_mobile = false;
+        if( $('#device-detector').css('display')=='none') {
+            psyMapp.is_mobile = true;
+        }
+        this.lat = !psyMapp.is_mobile ? 30 : 50;
 
         var date = new Date(),
             year = date.getFullYear();
-
         this.filterDateFrom = new Date('' + year + '-01-01');
         this.filterDateTo = new Date('' + year + '-12-31');
+
+        this.initGoogleMap();
+        this.showMarkers();
     },
     showMarkers: function () {
         if (this.isLocal()) {
@@ -90,7 +98,7 @@ var psyMapp = {
     },
     initGoogleMap: function () {
         psyMapp.map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 30, lng: 13.392709},
+            center: {lat: psyMapp.lat, lng: 13.392709},
             zoom: 3,
             minZoom: 2
         });
@@ -401,7 +409,7 @@ var psyMapp = {
                         var marker = new google.maps.Marker({
                             map: map,
                             position: results[0].geometry.location,
-                            icon: 'http://www.moonkoradji.com/psymap/images/map-marker-3.png'
+                            icon: psyMapp.markerPath
                         });
                         psyMapp.setMarkerClick(markup, map, marker);
                     } else {
@@ -416,7 +424,7 @@ var psyMapp = {
                 var marker = new google.maps.Marker({
                     position: {lat: lat, lng: lng},
                     map: map,
-                    icon: 'http://www.moonkoradji.com/psymap/images/map-marker-3.png'
+                    icon: psyMapp.markerPath
                 });
                 psyMapp.setMarkerClick(markup, map, marker);
             }
