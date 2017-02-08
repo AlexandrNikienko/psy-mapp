@@ -5,6 +5,7 @@ var psyMapp = {
         console.log("Init Psy-Mapp");
 
         this.markerPath = 'http://www.moonkoradji.com/psymap/images/placeholder.png';
+        this.markerPath2 = 'http://www.moonkoradji.com/psymap/images/placeholder-2.png';
 
         this.is_mobile = false;
         if( $('#device-detector').css('display')=='none') {
@@ -16,6 +17,11 @@ var psyMapp = {
             year = date.getFullYear();
         this.filterDateFrom = new Date('' + year + '-01-01');
         this.filterDateTo = new Date('' + year + '-12-31');
+
+        this.autocompleteTags = [];
+        this.finished = [];
+        this.unsuccessful = [];
+        this.whithoutPlace = [];
 
         this.initGoogleMap();
         this.showMarkers();
@@ -54,7 +60,7 @@ var psyMapp = {
                 }
             )
         }
-        console.log("psyMapp.allData: ", psyMapp.allData);
+        console.log("psyMapp.allData: ", psyMapp.allData);//*******************ALL DATA**************************
         //$("#status").text(psyMapp.allData);
 
         /*console.log("psyMapp.allData.length: ", psyMapp.allData.length);
@@ -89,7 +95,7 @@ var psyMapp = {
             'GET',
             {},
             function (data) {
-                console.log("USER :", data);
+                //console.log("USER :", data);
                 var html = '<div class="user-wrapper"><div class="user-name">Hello, <br>' + data.name + '</div>' +
                     '<div class="user-pic"><img src="' + data.picture.data.url + '" alt=""/></div></div>';
                 $('.welcome').append(html);
@@ -97,6 +103,7 @@ var psyMapp = {
         )
     },
     initGoogleMap: function () {
+        this.autocompleteTags = [];
         psyMapp.map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: psyMapp.lat, lng: 13.392709},
             zoom: 3,
@@ -336,7 +343,7 @@ var psyMapp = {
         psyMapp.map.setOptions({styles: styles});
     },
     setMarker: function (map, obj) {
-        //console.log("*** Marker for: ", obj.name + " ***");
+        console.log("*** Marker for: ", obj.name + " ***");
 
         var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 
@@ -379,6 +386,7 @@ var psyMapp = {
 
         if (+endDate.getTime() < +today.getTime()) {
             console.log("Event " + obj.name + " finished");
+            psyMapp.finished.push(obj.name);
             return;
         }
 
@@ -403,34 +411,54 @@ var psyMapp = {
             if (!obj.place.location) {
 
                 var address = obj.place.name;
-                //console.log("Place name :" + address);
+                console.log("Place name :" + address);
                 psyMapp.geocoder.geocode({'address': address}, function (results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
                         var marker = new google.maps.Marker({
                             map: map,
                             position: results[0].geometry.location,
-                            icon: psyMapp.markerPath
+                            icon: psyMapp.returnMarkerPath(obj)
                         });
                         psyMapp.setMarkerClick(markup, map, marker);
+                        psyMapp.autocompleteTags.push(obj.name);
+
+                        if(psyMapp.searchItem && psyMapp.searchItem == obj.name) {
+                            var position = {
+                                lat: marker.getPosition().lat(),
+                                lng: marker.getPosition().lng()
+                            };
+                            map.setCenter(new google.maps.LatLng(position));
+                        }
                     } else {
-                        //console.log(obj.name + " @ " + obj.place.name + ": Geocode was not successful: " + status);
+                        console.log(obj.name + " @ " + obj.place.name + ": Geocode was not successful: " + status);
+                        psyMapp.unsuccessful.push(obj.name);
                     }
                 });
+
             }
             else {
                 var lat = obj.place.location.latitude,
                     lng = obj.place.location.longitude;
-                //console.log("LatLng " + lat + "/" + lng);
+                console.log("LatLng " + lat + "/" + lng);
                 var marker = new google.maps.Marker({
                     position: {lat: lat, lng: lng},
                     map: map,
-                    icon: psyMapp.markerPath
+                    icon: psyMapp.returnMarkerPath(obj)
                 });
                 psyMapp.setMarkerClick(markup, map, marker);
+                psyMapp.autocompleteTags.push(obj.name);
+
+                if(psyMapp.searchItem && psyMapp.searchItem==obj.name) {
+                    var position = {lat: lat, lng: lng};
+                    map.setCenter(new google.maps.LatLng(position));
+                }
             }
         } else {
             console.log("!!! have no place! !!" + obj.name);
+            psyMapp.whithoutPlace.push(obj.name);
         }
+        psyMapp.setAutocomplete($(".search"), psyMapp.autocompleteTags);
+
     },
     setMarkerClick: function (content, map, marker) {
         marker.addListener('click', function () {
@@ -459,6 +487,23 @@ var psyMapp = {
             });
 
         });
+    },
+    setAutocomplete: function($el, array){
+        $el.autocomplete({
+            source: array,
+            select: function(event, ui) {
+                psyMapp.searchItem = ui.item.value;
+                psyMapp.initGoogleMap();
+                psyMapp.showMarkers();
+            }
+        });
+    },
+    returnMarkerPath: function(obj){
+      var path = psyMapp.markerPath;
+        if(psyMapp.searchItem && psyMapp.searchItem==obj.name) {
+            path = psyMapp.markerPath2;
+        }
+      return path;
     },
     isLocal: function () {
         var link = window.location.href;

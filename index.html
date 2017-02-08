@@ -53,8 +53,8 @@
             // See statusChangeCallback() for when this call is made.
             var uid = response.authResponse.userID;
             psyMappAPI(uid);
-            $(".welcome, .date-range").show();
             $(".login").addClass("hide");
+            $("body").addClass("connected");
         } else if (response.status === 'not_authorized') {
             // The person is logged into Facebook, but not your app.
             console.log("The person is logged into Facebook, but not your app.");
@@ -165,6 +165,8 @@
         <label for="to">date to</label>
         <input class="date-input" type="text" id="to" name="to">
         <span class="reset-btn js-reset-filter">reset</span>
+        <label for="search">search</label>
+        <input class="search" type="search" id="search" name="search">
     </div>
 
     <div class="sheep-1"></div>
@@ -199,7 +201,9 @@
 
     if (psyMapp.isLocal()) {
         psyMapp.init();
-        $(".date-range").show();
+        //$(".date-range").show();
+
+        $("body").addClass("connected");
     }
 
 
