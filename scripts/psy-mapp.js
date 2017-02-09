@@ -423,11 +423,8 @@ var psyMapp = {
                         psyMapp.autocompleteTags.push(obj.name);
 
                         if(psyMapp.searchItem && psyMapp.searchItem == obj.name) {
-                            var position = {
-                                lat: marker.getPosition().lat(),
-                                lng: marker.getPosition().lng()
-                            };
-                            map.setCenter(new google.maps.LatLng(position));
+                            psyMapp.setMapCentre(marker.getPosition().lat(), marker.getPosition().lng(), map);
+                            marker.setZIndex(1000);
                         }
                     } else {
                         console.log(obj.name + " @ " + obj.place.name + ": Geocode was not successful: " + status);
@@ -449,8 +446,8 @@ var psyMapp = {
                 psyMapp.autocompleteTags.push(obj.name);
 
                 if(psyMapp.searchItem && psyMapp.searchItem==obj.name) {
-                    var position = {lat: lat, lng: lng};
-                    map.setCenter(new google.maps.LatLng(position));
+                    psyMapp.setMapCentre(lat, lng, map);
+                    marker.setZIndex(1000);
                 }
             }
         } else {
@@ -487,6 +484,10 @@ var psyMapp = {
             });
 
         });
+    },
+    setMapCentre: function(lat, lng, map) {
+        var position = {lat: lat, lng: lng};
+        map.setCenter(new google.maps.LatLng(position));
     },
     setAutocomplete: function($el, array){
         $el.autocomplete({
