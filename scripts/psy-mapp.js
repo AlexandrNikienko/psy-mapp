@@ -16,7 +16,7 @@ var psyMapp = {
         var date = new Date(),
             year = date.getFullYear();
         this.filterDateFrom = new Date('' + year + '-01-01');
-        this.filterDateTo = new Date('' + year + '-12-31');
+        this.filterDateTo = new Date('' + (year + 1) + '-12-31');
 
         this.autocompleteTags = [];
         this.finished = [];
