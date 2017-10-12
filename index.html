@@ -253,7 +253,7 @@
                 year = date.getFullYear();
 
             psyMapp.filterDateFrom = new Date('' + year + '-01-01');
-            psyMapp.filterDateTo = new Date('' + year + '-12-31');
+            psyMapp.filterDateTo = new Date('' + year + 1 + '-12-31');
 
             psyMapp.initGoogleMap();
             psyMapp.showMarkers();

@@ -8,7 +8,7 @@ var psyMapp = {
         this.markerPath2 = 'http://www.moonkoradji.com/psymap/images/placeholder-2.png';
 
         this.is_mobile = false;
-        if( $('#device-detector').css('display')=='none') {
+        if ($('#device-detector').css('display') == 'none') {
             psyMapp.is_mobile = true;
         }
         this.lat = !psyMapp.is_mobile ? 30 : 50;
@@ -54,23 +54,11 @@ var psyMapp = {
                 function (data) {
                     psyMapp.allData.push(JSON.stringify(data));
                     psyMapp.allDataStr += JSON.stringify(data) + ",";
-                    //console.log(a);
-                    //if (a == (IDs.length - 1)) $("#status").text("psyMapp.allDataStr: " + psyMapp.allDataStr);
                     psyMapp.setMarker(psyMapp.map, data);
                 }
             )
         }
-        console.log("psyMapp.allData: ", psyMapp.allData);//*******************ALL DATA**************************
-        //$("#status").text(psyMapp.allData);
-
-        /*console.log("psyMapp.allData.length: ", psyMapp.allData.length);
-         for (var i = 0; i < psyMapp.allData.length; i++) {
-         console.log("psyMapp.allData[i]: ", psyMapp.allData[i]);
-         psyMapp.allDataStr += psyMapp.allData[i] + ","
-         }*/
-
-        //console.log("psyMapp.allDataStr: ", psyMapp.allDataStr);
-        //$("#status").text(psyMapp.allDataStr);
+        console.log("psyMapp.allData: ", psyMapp.allData);
     },
     getIDs: function () {
         $.getJSON("data/IDs.json", function (data) {
@@ -117,201 +105,6 @@ var psyMapp = {
         });
 
         var styles = [
-            /*{
-             "elementType": "geometry",
-             "stylers": [
-             {
-             "color": "#ebe3cd"
-             }
-             ]
-             },
-             {
-             "elementType": "labels.text.fill",
-             "stylers": [
-             {
-             "color": "#523735"
-             }
-             ]
-             },
-             {
-             "elementType": "labels.text.stroke",
-             "stylers": [
-             {
-             "color": "#f5f1e6"
-             }
-             ]
-             },
-             {
-             "featureType": "administrative",
-             "elementType": "geometry.stroke",
-             "stylers": [
-             {
-             "color": "#c9b2a6"
-             }
-             ]
-             },
-             {
-             "featureType": "administrative.land_parcel",
-             "elementType": "geometry.stroke",
-             "stylers": [
-             {
-             "color": "#dcd2be"
-             }
-             ]
-             },
-             {
-             "featureType": "administrative.land_parcel",
-             "elementType": "labels.text.fill",
-             "stylers": [
-             {
-             "color": "#ae9e90"
-             }
-             ]
-             },
-             {
-             "featureType": "landscape.natural",
-             "elementType": "geometry",
-             "stylers": [
-             {
-             "color": "#dfd2ae"
-             }
-             ]
-             },
-             {
-             "featureType": "poi",
-             "elementType": "geometry",
-             "stylers": [
-             {
-             "color": "#dfd2ae"
-             }
-             ]
-             },
-             {
-             "featureType": "poi",
-             "elementType": "labels.text.fill",
-             "stylers": [
-             {
-             "color": "#93817c"
-             }
-             ]
-             },
-             {
-             "featureType": "poi.park",
-             "elementType": "geometry.fill",
-             "stylers": [
-             {
-             "color": "#a5b076"
-             }
-             ]
-             },
-             {
-             "featureType": "poi.park",
-             "elementType": "labels.text.fill",
-             "stylers": [
-             {
-             "color": "#447530"
-             }
-             ]
-             },
-             {
-             "featureType": "road",
-             "elementType": "geometry",
-             "stylers": [
-             {
-             "color": "#f5f1e6"
-             }
-             ]
-             },
-             {
-             "featureType": "road.arterial",
-             "elementType": "geometry",
-             "stylers": [
-             {
-             "color": "#fdfcf8"
-             }
-             ]
-             },
-             {
-             "featureType": "road.highway",
-             "elementType": "geometry",
-             "stylers": [
-             {
-             "color": "#f8c967"
-             }
-             ]
-             },
-             {
-             "featureType": "road.highway",
-             "elementType": "geometry.stroke",
-             "stylers": [
-             {
-             "color": "#e9bc62"
-             }
-             ]
-             },
-             {
-             "featureType": "road.highway.controlled_access",
-             "elementType": "geometry",
-             "stylers": [
-             {
-             "color": "#e98d58"
-             }
-             ]
-             },
-             {
-             "featureType": "road.highway.controlled_access",
-             "elementType": "geometry.stroke",
-             "stylers": [
-             {
-             "color": "#db8555"
-             }
-             ]
-             },
-             {
-             "featureType": "road.local",
-             "elementType": "labels.text.fill",
-             "stylers": [
-             {
-             "color": "#806b63"
-             }
-             ]
-             },
-             {
-             "featureType": "transit.line",
-             "elementType": "geometry",
-             "stylers": [
-             {
-             "color": "#dfd2ae"
-             }
-             ]
-             },
-             {
-             "featureType": "transit.line",
-             "elementType": "labels.text.fill",
-             "stylers": [
-             {
-             "color": "#8f7d77"
-             }
-             ]
-             },
-             {
-             "featureType": "transit.line",
-             "elementType": "labels.text.stroke",
-             "stylers": [
-             {
-             "color": "#ebe3cd"
-             }
-             ]
-             },
-             {
-             "featureType": "transit.station",
-             "elementType": "geometry",
-             "stylers": [
-             {
-             "color": "#dfd2ae"
-             }
-             ]
-             },*/
             {
                 "featureType": "water",
                 "elementType": "geometry.fill",
@@ -348,27 +141,25 @@ var psyMapp = {
         var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 
             startDatestring = "" + obj.start_time + "",
-            endDatestring = "" + obj.end_time + "",
 
-            startDate = new Date(obj.start_time),
+            endDatestring = "" + obj.end_time + "";
 
-            endDate = new Date(obj.end_time),
+        console.info(endDatestring);
 
-            /*datesStr = startDate.getDate() + ' ' +
-             monthNames[startDate.getMonth()] + ' ' +
-             startDate.getFullYear() + " - " +
-             endDate.getDate() + ' ' +
-             monthNames[endDate.getMonth()] + ' ' +
-             endDate.getFullYear(),*/
+        var datesStr = startDatestring.substr(8, 2) + ' ' +
+            monthNames[startDatestring.substr(5, 2) - 1] + ' ' +
+            startDatestring.substr(0, 4) + " - " +
+            endDatestring.substr(8, 2) + ' ' +
+            monthNames[endDatestring.substr(5, 2) - 1] + ' ' +
+            endDatestring.substr(0, 4);
 
-            datesStr = startDatestring.substr(8, 2) + ' ' +
+        if (endDatestring == 'undefined') {
+            var datesStr = startDatestring.substr(8, 2) + ' ' +
                 monthNames[startDatestring.substr(5, 2) - 1] + ' ' +
-                startDatestring.substr(0, 4) + " - " +
-                endDatestring.substr(8, 2) + ' ' +
-                monthNames[endDatestring.substr(5, 2) - 1] + ' ' +
-                endDatestring.substr(0, 4),
+                startDatestring.substr(0, 4);
+        }
 
-            imgSrc = obj.cover ? obj.cover.source : "",
+        var imgSrc = obj.cover ? obj.cover.source : "",
 
             markup = "<img class='iwImage' src='" + imgSrc + "'>" +
                 "<a class='iwLink' target='_blank' href='http://www.facebook.com/events/" + obj.id + "'>" + obj.name + "</a>" +
@@ -378,11 +169,11 @@ var psyMapp = {
 
         /*creating dates correct for mac*/
 
-        var startDateParse = '' + startDatestring.substr(0, 4) + '-' + startDatestring.substr(5, 2) + '-' + startDatestring.substr(8, 2) + '';
-        startDate = new Date(startDateParse);
+        var startDateParse = '' + startDatestring.substr(0, 4) + '-' + startDatestring.substr(5, 2) + '-' + startDatestring.substr(8, 2) + '',
+            startDate = new Date(startDateParse);
 
-        var endDateParse = '' + endDatestring.substr(0, 4) + '-' + endDatestring.substr(5, 2) + '-' + endDatestring.substr(8, 2) + '';
-        endDate = new Date(endDateParse);
+        var endDateParse = '' + endDatestring.substr(0, 4) + '-' + endDatestring.substr(5, 2) + '-' + endDatestring.substr(8, 2) + '',
+            endDate = new Date(endDateParse);
 
         if (+endDate.getTime() < +today.getTime()) {
             console.log("Event " + obj.name + " finished");
@@ -422,7 +213,7 @@ var psyMapp = {
                         psyMapp.setMarkerClick(markup, map, marker);
                         psyMapp.autocompleteTags.push(obj.name);
 
-                        if(psyMapp.searchItem && psyMapp.searchItem == obj.name) {
+                        if (psyMapp.searchItem && psyMapp.searchItem == obj.name) {
                             psyMapp.setMapCentre(marker.getPosition().lat(), marker.getPosition().lng(), map);
                             marker.setZIndex(1000);
                         }
@@ -445,7 +236,7 @@ var psyMapp = {
                 psyMapp.setMarkerClick(markup, map, marker);
                 psyMapp.autocompleteTags.push(obj.name);
 
-                if(psyMapp.searchItem && psyMapp.searchItem==obj.name) {
+                if (psyMapp.searchItem && psyMapp.searchItem == obj.name) {
                     psyMapp.setMapCentre(lat, lng, map);
                     marker.setZIndex(1000);
                 }
@@ -454,6 +245,7 @@ var psyMapp = {
             console.log("!!! have no place! !!" + obj.name);
             psyMapp.whithoutPlace.push(obj.name);
         }
+
         psyMapp.setAutocomplete($(".search"), psyMapp.autocompleteTags);
 
     },
@@ -485,26 +277,26 @@ var psyMapp = {
 
         });
     },
-    setMapCentre: function(lat, lng, map) {
+    setMapCentre: function (lat, lng, map) {
         var position = {lat: lat, lng: lng};
         map.setCenter(new google.maps.LatLng(position));
     },
-    setAutocomplete: function($el, array){
+    setAutocomplete: function ($el, array) {
         $el.autocomplete({
             source: array,
-            select: function(event, ui) {
+            select: function (event, ui) {
                 psyMapp.searchItem = ui.item.value;
                 psyMapp.initGoogleMap();
                 psyMapp.showMarkers();
             }
         });
     },
-    returnMarkerPath: function(obj){
-      var path = psyMapp.markerPath;
-        if(psyMapp.searchItem && psyMapp.searchItem==obj.name) {
+    returnMarkerPath: function (obj) {
+        var path = psyMapp.markerPath;
+        if (psyMapp.searchItem && psyMapp.searchItem == obj.name) {
             path = psyMapp.markerPath2;
         }
-      return path;
+        return path;
     },
     isLocal: function () {
         var link = window.location.href;
